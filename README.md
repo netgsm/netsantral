@@ -1866,7 +1866,7 @@ Array
         (
             [error] => 
             [code] => 200
-            [message] => 12505 ID numaralı projeye 1 numara eklenemedi. 
+            [message] => 12505 ID numaralı projeye 1 numara eklendi. 
         )
 
     [body] => Array
@@ -1879,9 +1879,9 @@ Array
                         (
                             [0] => stdClass Object
                                 (
-                                    [number] => 542xxxxxxx
+                                    [number] => 553xxxxxxx
                                     [name] => netgsm
-                                    [status] => error
+                                    [status] => success
                                 )
 
                         )
