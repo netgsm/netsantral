@@ -289,7 +289,28 @@ Array
         echo '<pre>';
 
 ```
-
+#### Başarılı istek örnek sonuç
+```
+Array
+(
+    [unique_id] => sip3-xxxxxxxx.53336
+    [caller_num] => 102
+    [called_num] => 553xxxxxxx
+    [crm_id] => xxx
+    [response] => originate
+    [status] => Success
+    [message] => Successfully
+)
+```
+#### Başarısız istek örnek sonuç
+```
+Array
+(
+    [code] => 30
+    [status] => Error
+    [message] => Eksik yada yanlis parametre 2 
+)
+```
 
 ### Çağrı Sonlandırma
 
@@ -335,6 +356,25 @@ Parametre olarak aldığı uniqueid değerine sahip kanalı santraliniz üzerind
 
 ```
 
+#### Başarılı istek örnek sonuç
+```
+Array
+(
+    [crm_id] => xxx
+    [response] => hangup
+    [status] => Success
+    [message] => Successful
+)
+```
+#### Başarısız istek örnek sonuç
+```
+Array
+(
+    [code] => 30
+    [status] => Error
+    [message] => Eksik yada yanlis parametre
+)
+```
 ## Servisten Alınan Örnek Cevap
 
 <table>
