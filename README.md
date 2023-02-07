@@ -129,9 +129,9 @@ Bu servis, santral numaranızdan (312xxxxxxx,850xxxxxxx) santralinizdeki registe
             "originate_order"=>"if",
             "trunk"=>"312xxxxxxx",
             "call_time"=>"49",
-            // "caller_text"=>"merhaba bu bir test aramasıdır.",
-            // "called_text"=>"merhaba bu bir test aramasıdır.",
-            "called_record"=>"mesaidisistandart.wav"
+            // "caller_text"=>"merhaba bu bir test aramasıdır.",//caller_record varsa caller_text yazılmamalıdır.
+            // "called_text"=>"merhaba bu bir test aramasıdır.",//called_record varsa caller_text yazılmamalıdır.
+            "called_record"=>"mesaidisistandart.wav"//called_text varsa called_record yazılmamalıdır.
         );
         $islem=new NetsantralPackage;
         $sonuc=$islem->cagribaslat($data);
