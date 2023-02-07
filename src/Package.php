@@ -597,8 +597,8 @@ class Package
         return $response;
       }
 
-      $username=env("NETGSM_USERCODE");
-      $password=env("NETGSM_PASSWORD");
+    $username=env("NETGSM_USERCODE");
+   $password=env("NETGSM_PASSWORD"); 
       try {
 
         $arr_acc = array(
@@ -628,7 +628,7 @@ class Package
         $json_response = curl_exec($curl);
         $status = curl_getinfo($curl, CURLINFO_HTTP_CODE);
         curl_close($curl);
-
+          
         $response=(array)json_decode($json_response);
         return $response;
     } catch (Exception $exc)
@@ -638,29 +638,31 @@ class Package
     }
     public function listeNumCikar(array $data):array
     {
+      
       if(!isset($data['list_id']) || !isset($data['id']) )
       {
-        $response='Eksik parametre!';
+        $response['durum']='Eksik parametre!';
         return $response;
       }
-
+      
       $username=env("NETGSM_USERCODE");
       $password=env("NETGSM_PASSWORD");
+      
       try {
 
         $arr_acc = array(
-            "header" => array( "username" => $username,"password" => $password),
-            "body" => array(
-                "event" => "deletenumber",
-                "list_id" => $data['list_id'],
-                "data" => array(
-                    "id"  => $data['id']		 
-                   )  
-            ));
+          "header" => array( "username" => $username,"password" => $password),
+          "body" => array(
+              "event" => "deletenumber",
+              "list_id" => "12505",
+              "data" => array(
+                  "id"  => "27273235"
+                 )  
+          ));
     
         $url = "https://api.netgsm.com.tr/autocallservice";
         $content = json_encode($arr_acc);
-    
+        
         $curl = curl_init($url);
         curl_setopt($curl, CURLOPT_HEADER, false);
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
@@ -675,10 +677,13 @@ class Package
         curl_close($curl);
         $response=(array)json_decode($json_response);
         return $response;
+       // $send_acc = json_decode($send_acc);
+        
     } catch (Exception $exc)
     {
         echo $exc->getMessage();
     }
+    
     }
     public function listeNumGuncelle(array $data):array
     {
