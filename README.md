@@ -761,7 +761,23 @@ Array
         echo '<pre>';
 
 ```
-
+##### Başarılı istek örnek sonuç
+```
+Array
+(
+    [crm_id] => 345
+    [status] => Success
+    [message] => Successful
+)
+```
+##### Başarısız istek örnek sonuç
+```
+Array
+(
+    [status] => Error
+    [message] => Bir veya birden fazla kuyrukta hata olustuUnable to add interface to queue: No such queue
+)
+```
 ## Kuyruktan Dahili Çıkarma
 
 <table>
@@ -804,8 +820,25 @@ Array
         echo '<pre>';
 
 ```
-
-## Kuyruktan Sorgula
+##### Başarılı istek örnek sonuç
+```
+Array
+(
+    [crm_id] => 345
+    [status] => Success
+    [message] => Successful
+)
+```
+##### Başarısız istek örnek sonuç
+```
+Array
+(
+    [status] => Error
+    [message] => Bir veya birden fazla kuyrukta hata olustuUnable to remove interface from queue: No such queue
+)
+```
+## Kuyruk Durum Sorgula  
+Santralinizdeki kuyruklardaki olaylar anlık olarak izlenebilir.  
 
 <table>
 <thead>
@@ -843,23 +876,57 @@ Array
 
 ```
 
-## Kuyruk Durum Sorgulama
+##### Başarılı istek örnek sonuç
 
-Santralinizdeki kuyruklardaki olaylar anlık olarak izlenebilir.
+
 
 ```
-        use Netgsm\Netsantral\Package as NetsantralPackage;
-        $data=array(
-            "queue"=>"muhasebe",
-            "crm_id"=>"345",
-            );
-     
-        $islem=new NetsantralPackage;
-        $sonuc=$islem->kuyrukSorgula($data);
-        echo '<pre>';
-            print_r($sonuc);
-        echo '<pre>';
+Array
+(
+    [crm_id] => 345
+    [pbx_num] => 3129116589
+    [queues] => Array
+        (
+            [0] => stdClass Object
+                (
+                    [queuename] => 3129116589-queue-Operator
+                    [callers] => stdClass Object
+                        (
+                        )
 
+                    [agents] => Array
+                        (
+                            [0] => stdClass Object
+                                (
+                                    [agent] => 101
+                                    [status] => empty
+                                    [membership] => static
+                                    [paused] => false
+                                    [reason] => 
+                                )
+
+                        )
+
+                    [calls] => 0
+                    [holdtime] => 0
+                    [talktime] => 0
+                    [completed] => 0
+                    [abondaned] => 0
+                    [max] => 0
+                )
+
+        )
+
+)       
+
+```
+##### Başarısız istek örnek sonuç
+```
+(
+    [code] => 70
+    [status] => Error
+    [message] => 312xxxxxxx isimli santrale ait boyle bir kuyruk yoktur
+)
 ```
 
 ### Servisten Alınan Cevap Parametreleri
