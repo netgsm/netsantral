@@ -265,7 +265,8 @@ Array
 </tr>
 </tbody>
 </table>
-### İç Dahiliye Çağrı Başlatma
+
+##  İç Dahiliye Çağrı Başlatma
 
 ```
        use Netgsm\Netsantral\Package as NetsantralPackage;
