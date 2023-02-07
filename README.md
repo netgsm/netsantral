@@ -1866,7 +1866,7 @@ Array
         (
             [error] => 
             [code] => 200
-            [message] => 12505 ID numaralı projeye 1 numara eklendi. 
+            [message] => 12505 ID numaralı projeye 1 numara eklenemedi. 
         )
 
     [body] => Array
@@ -1879,9 +1879,9 @@ Array
                         (
                             [0] => stdClass Object
                                 (
-                                    [number] => 553xxxxxxx
+                                    [number] => 542xxxxxxx
                                     [name] => netgsm
-                                    [status] => success
+                                    [status] => error
                                 )
 
                         )
@@ -2075,7 +2075,41 @@ Görüşme kayıtlarınızı, belirteceğiniz zaman aralığına göre, çağrı
             print_r($sonuc);
         echo '<pre>';
 ```
+##### Başarılı istek örnek sonuç
+```
+Array
+(
+    [0] => stdClass Object
+        (
+            [uniqueid] => sip3-1675767033.92222
+            [values] => Array
+                (
+                    [0] => stdClass Object
+                        (
+                            [date] => 07.02.2023 13:50:33
+                            [destination] => 553xxxxxxx
+                            [source] => 102
+                            [duration] => 54
+                            [direction] => 0
+                            [recording] => https://dosyaindir.netgsm.com.tr/upload.php?tip=1&a=8f344a1062ac54................
+                            [line] => 312xxxxxxx
+                            [directory] => "102" <102>
+                            [commonID] => 36xxxxxx
+                        )
 
+                )
+
+        )
+)
+```
+##### Başarısız istek örnek sonuç
+```
+Array
+(
+    [code] => 40
+    [error] => Kayit bulunamadi
+)
+```
 ###### SERVİSTEN GELEN CEVAP  
 
 <table>
@@ -2230,8 +2264,28 @@ Gelen çağrılarınızdan oluşan tarih bazlı istatistiğe bu servisle ulaşab
 </tr>
 </tbody>
 </table>
-
-
+##### Başarılı istek örnek sonuç
+```
+Array
+(
+    [date] => 01.02.2023
+    [answered] => 2
+    [noanswer] => 0
+    [t_calltime] => 39
+    [t_waittime] => 42
+    [max_waiting] => 16
+    [avr_waiting] => 11
+    [avr_answered] => 20
+)
+```
+##### Başarısız istek örnek sonuç
+```
+Array
+(
+    [code] => 40
+    [error] => Kayit Bulunamadi
+)
+```
 ### Gün Detayı 
 
 Terkedilmiş, cevapsız, cevaplanan çağrı bilgisine ulaşılabilir.  
@@ -2245,3 +2299,26 @@ Terkedilmiş, cevapsız, cevaplanan çağrı bilgisine ulaşılabilir.
         echo '<pre>';
             print_r($sonuc);
         echo '<pre>';
+
+##### Başarılı istek örnek sonuç
+```
+Array
+(
+    [date] => 01.02.2023
+    [answered] => 2
+    [noanswer] => 0
+    [t_calltime] => 39
+    [t_waittime] => 42
+    [max_waiting] => 16
+    [avr_waiting] => 11
+    [avr_answered] => 20
+)
+```
+##### Başarısız istek örnek sonuç
+```
+Array
+(
+    [code] => 40
+    [error] => Kayit Bulunamadi
+)
+```
