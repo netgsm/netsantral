@@ -1440,6 +1440,10 @@ Bazı entegrasyonlardan bu listeye numara ekletmesi yapabilirsiniz.
                 
         ); 
 
+	$sonuc=$islem->otoAramaListeOlustur($data);
+        echo '<pre>';
+            print_r($sonuc);
+        echo '<pre>';
 ```
 
 
