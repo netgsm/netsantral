@@ -471,7 +471,7 @@ Array
 
 ```
 
-## Başarılı istek örnek sonuç
+##### Başarılı istek örnek sonuç
 
 ```
 Array
@@ -483,7 +483,7 @@ Array
 )
 
 ```
-## Başarısız istek örnek sonuç
+##### Başarısız istek örnek sonuç
 
 ```
 Array
@@ -583,7 +583,7 @@ Array
         echo '<pre>';
 
 ```
-### Başarılı istek örnek sonuç
+##### Başarılı istek örnek sonuç
 ```
 Array
 (
@@ -596,7 +596,7 @@ Array
     [message] => Successfully
 )
 ```
-### Başarısız istek örnek sonuç
+##### Başarısız istek örnek sonuç
 ```
 Array
 (
@@ -656,7 +656,7 @@ Array
         echo '<pre>';
 
 ```
-### Başarılı istek örnek sonuç
+##### Başarılı istek örnek sonuç
 ```
 Array
 (
@@ -666,7 +666,7 @@ Array
     [message] => Successful
 )
 ```
-### Başarısız istek örnek sonuç
+##### Başarısız istek örnek sonuç
 ```
 Array
 (
