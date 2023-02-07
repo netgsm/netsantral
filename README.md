@@ -112,6 +112,35 @@ Bu servis, santral numaranızdan (312xxxxxxx,850xxxxxxx) santralinizdeki registe
 </tbody>
 </table>
 
+
+
+## Örnek
+
+```
+       use Netgsm\Netsantral\Package as NetsantralPackage;
+       
+       $data=array(   
+            "customer_num"=>"553xxxxxxx",
+            "pbxnum"=>"850xxxxxxx",
+            "internal_num"=>"110",
+            "ring_timeout"=>"20",
+            "crm_id"=>"xxx",
+            "wait_response"=>"1",
+            "originate_order"=>"if",
+            "trunk"=>"312xxxxxxx",
+            "call_time"=>"49",
+            // "caller_text"=>"merhaba bu bir test aramasıdır.",
+            // "called_text"=>"merhaba bu bir test aramasıdır.",
+            "called_record"=>"mesaidisistandart.wav"
+        );
+        $islem=new NetsantralPackage;
+        $sonuc=$islem->cagribaslat($data);
+        
+        echo '<pre>';
+            print_r($sonuc);
+        echo '<pre>';
+
+```
 ## Sistemden Alınan Cevap
 
 <table>
@@ -214,34 +243,6 @@ Bu servis, santral numaranızdan (312xxxxxxx,850xxxxxxx) santralinizdeki registe
 </tr>
 </tbody>
 </table>
-
-## Örnek
-
-```
-       use Netgsm\Netsantral\Package as NetsantralPackage;
-       
-       $data=array(   
-            "customer_num"=>"553xxxxxxx",
-            "pbxnum"=>"850xxxxxxx",
-            "internal_num"=>"110",
-            "ring_timeout"=>"20",
-            "crm_id"=>"xxx",
-            "wait_response"=>"1",
-            "originate_order"=>"if",
-            "trunk"=>"312xxxxxxx",
-            "call_time"=>"49",
-            // "caller_text"=>"merhaba bu bir test aramasıdır.",
-            // "called_text"=>"merhaba bu bir test aramasıdır.",
-            "called_record"=>"mesaidisistandart.wav"
-        );
-        $islem=new NetsantralPackage;
-        $sonuc=$islem->cagribaslat($data);
-        
-        echo '<pre>';
-            print_r($sonuc);
-        echo '<pre>';
-
-```
 ### İç Dahiliye Çağrı Başlatma
 
 ```
