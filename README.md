@@ -1594,7 +1594,63 @@ Array
         echo '<pre>';
 
 ```
+##### Başarılı istek örnek sonuç
+```
+Array
+(
+    [header] => stdClass Object
+        (
+            [error] => 
+            [code] => 200
+            [message] => Otomatik arama listeleme başarılı.
+        )
 
+    [body] => Array
+        (
+            [0] => stdClass Object
+                (
+                    [list_id] => 12505
+                    [list_name] => list_name
+                    [list_status] => 0
+                    [list_prefix] => 110
+                    [list_type] => 2
+                    [list_startdate] => 2023-02-01
+                    [list_stopdate] => 2023-02-01
+                    [list_starttime] => 11:00     
+                    [list_stoptime] => 11:15     
+                    [retry_count] => 1
+                    [try_time] => 5
+                    [department] => muhasebe
+                    [destination_type] => queue
+                    [destination_name] => muhasebe
+                    [queue_limit] => 1
+                    [groups] => Array
+                        (
+                        )
+
+                )
+
+        )
+
+)
+```
+##### Başarısız istek örnek sonuç
+```
+Array
+(
+    [header] => stdClass Object
+        (
+            [error] => 1
+            [code] => 400
+            [message] => HAtalı sorgulama. Bu id ye ait otomatik arama listesi yok yada yetkiniz yok.
+        )
+
+    [body] => Array
+        (
+        )
+
+)
+```
 ### Otomatik Arama Listesini Durdur/Başlat
 
 <table>
@@ -1630,7 +1686,46 @@ Array
         echo '<pre>';
 
 ```
+##### Başarılı istek örnek sonuç
+```
+Array
+(
+    [header] => stdClass Object
+        (
+            [error] => 
+            [code] => 200
+            [message] => Otomatik arama listesi başarıyla aktifleştirildi.
+        )
 
+    [body] => Array
+        (
+            [0] => stdClass Object
+                (
+                    [list_id] => 12505
+                    [status] => 1
+                )
+
+        )
+
+)
+```
+##### Başarısız istek örnek sonuç
+```
+Array
+(
+    [header] => stdClass Object
+        (
+            [error] => 1
+            [code] => 70
+            [message] => Hatalı sorgulama. Gönderdiğiniz parametrelerden birisi hatalı veya zorunlu alanlardan birinin eksik olduğunu ifade eder. Liste ID si yok.
+        )
+
+    [body] => Array
+        (
+        )
+
+)
+```
 ### Otomatik Arama Raporlama
 
 ```
@@ -1643,6 +1738,76 @@ Array
         echo '<pre>';
 	
 
+```
+##### Başarılı istek örnek sonuç
+```
+Array
+(
+    [header] => stdClass Object
+        (
+            [error] => 
+            [code] => 200
+            [message] => Raporlama basarili.
+        )
+
+    [body] => Array
+        (
+            [0] => stdClass Object
+                (
+                    [numbers_status] => Array
+                        (
+                            [0] => stdClass Object
+                                (
+                                    [type] => Hiç aranmamış
+                                    [count] => 0
+                                )
+
+                            [1] => stdClass Object
+                                (
+                                    [type] => Başarılı
+                                    [count] => 0
+                                )
+
+                            [2] => stdClass Object
+                                (
+                                    [type] => Başarısız
+                                    [count] => 0
+                                )
+
+                            [3] => stdClass Object
+                                (
+                                    [type] => Tekrar aranacak
+                                    [count] => 0
+                                )
+
+                        )
+
+                    [numbers] => Array
+                        (
+                        )
+
+                )
+
+        )
+
+)
+```
+##### Başarısız istek örnek sonuç
+```
+Array
+(
+    [header] => stdClass Object
+        (
+            [error] => 1
+            [code] => 301
+            [message] => Gönderilen ID değeri numerik ve sıfırdan büyük bir değer olmalıdır. 
+        )
+
+    [body] => Array
+        (
+        )
+
+)
 ```
 ### Listeye Numara Ekle
 
@@ -1685,7 +1850,7 @@ Dinamik devam eden ya da durdurulmuş listenize numara ekleyebilirsiniz.
 	$islem=new NetsantralPackage;
         $data=array(
             'list_id'=>"12431",
-            'numbers'=>array( "number" => "542xxxxxxx","name" => "fatih")
+            'numbers'=>array( "number" => "542xxxxxxx","name" => "netgsm")
         );
         $sonuc=$islem->listeNumEkle($data);
         echo '<pre>';
@@ -1693,7 +1858,57 @@ Dinamik devam eden ya da durdurulmuş listenize numara ekleyebilirsiniz.
         echo '<pre>';
 
 ```
+##### Başarılı istek örnek sonuç
+```
+Array
+(
+    [header] => stdClass Object
+        (
+            [error] => 
+            [code] => 200
+            [message] => 12505 ID numaralı projeye 1 numara eklenemedi. 
+        )
 
+    [body] => Array
+        (
+            [0] => stdClass Object
+                (
+                    [list_id] => 12505
+                    [list_name] => list_name
+                    [numbers] => Array
+                        (
+                            [0] => stdClass Object
+                                (
+                                    [number] => 542xxxxxxx
+                                    [name] => netgsm
+                                    [status] => error
+                                )
+
+                        )
+
+                )
+
+        )
+
+)
+```
+##### Başarısız istek örnek sonuç
+```
+Array
+(
+    [header] => stdClass Object
+        (
+            [error] => 1
+            [code] => 70
+            [message] => Hatalı sorgulama. Gönderdiğiniz parametrelerden birisi hatalı veya zorunlu alanlardan birinin eksik olduğunu ifade eder. Numaraların ekleneceği proje ID si girilmelidir.
+        )
+
+    [body] => Array
+        (
+        )
+
+)
+```
 ### Listeden Numara Çıkar
 <table>
 <thead>
