@@ -1297,11 +1297,11 @@ Netsantral'iniz üzerinden otomatik arama yaparak müşterilere duyuru, onay alm
 
 Neler Yapılabilir ?
 
-Otomatik Arama listenizi  oluşturabilirsiniz.  
-Tüm otomatik aramalarınızı listeleyebilirsiniz.  
-Serviste numara bazlı otomatik arama geçmişini görebilirsiniz.  
-Dinamik listenize yeni numaralar ekleyebilirsiniz.  
-Dinamik listenizi durdurup, başlatabilirsiniz. 
+- Otomatik Arama listenizi  oluşturabilirsiniz.  
+- Tüm otomatik aramalarınızı listeleyebilirsiniz.  
+- Serviste numara bazlı otomatik arama geçmişini görebilirsiniz.  
+- Dinamik listenize yeni numaralar ekleyebilirsiniz.  
+- Dinamik listenizi durdurup, başlatabilirsiniz. 
 
 ### Arama Listesi Oluştur 
 
