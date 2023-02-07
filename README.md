@@ -8,6 +8,16 @@
 
 NetSantral paket aboneliği bulunan kullanıcılarımız için laravel paketidir.
 
+# İletişim & Destek
+
+ Netgsm API Servisi ile alakalı tüm sorularınızı ve önerilerinizi teknikdestek@netgsm.com.tr adresine iletebilirsiniz.
+
+
+# Doküman 
+https://www.netgsm.com.tr/dokuman/
+ API Servisi için hazırlanmış kapsamlı dokümana ve farklı yazılım dillerinde örnek amaçlı hazırlanmış örnek kodlamalara 
+ [https://www.netgsm.com.tr/dokuman](https://www.netgsm.com.tr/dokuman) adresinden ulaşabilirsiniz.  
+ 
 ### Supported Laravel Versions
 
 Laravel 6.x, Laravel 7.x, Laravel 8.x, Laravel 9.x, 
@@ -102,6 +112,57 @@ Bu servis, santral numaranızdan (312xxxxxxx,850xxxxxxx) santralinizdeki registe
 </tbody>
 </table>
 
+
+
+## Örnek
+
+```
+       use Netgsm\Netsantral\Package as NetsantralPackage;
+       
+       $data=array(   
+            "customer_num"=>"553xxxxxxx",
+            "pbxnum"=>"850xxxxxxx",
+            "internal_num"=>"110",
+            "ring_timeout"=>"20",
+            "crm_id"=>"xxx",
+            "wait_response"=>"1",
+            "originate_order"=>"if",
+            "trunk"=>"312xxxxxxx",
+            "call_time"=>"49",
+            // "caller_text"=>"merhaba bu bir test aramasıdır.",
+            // "called_text"=>"merhaba bu bir test aramasıdır.",
+            "called_record"=>"mesaidisistandart.wav"
+        );
+        $islem=new NetsantralPackage;
+        $sonuc=$islem->cagribaslat($data);
+        
+        echo '<pre>';
+            print_r($sonuc);
+        echo '<pre>';
+
+```
+#### Başarılı istek örnek sonuç
+```
+Array
+(
+    [unique_id] => sip3-xxxxxxxx.53336
+    [caller_num] => 102
+    [called_num] => 553xxxxxxx
+    [crm_id] => xxx
+    [response] => originate
+    [status] => Success
+    [message] => Successfully
+)
+```
+#### Başarısız istek örnek sonuç
+```
+Array
+(
+    [code] => 30
+    [status] => Error
+    [message] => Eksik yada yanlis parametre 2 
+)
+```
 ## Sistemden Alınan Cevap
 
 <table>
@@ -205,34 +266,7 @@ Bu servis, santral numaranızdan (312xxxxxxx,850xxxxxxx) santralinizdeki registe
 </tbody>
 </table>
 
-## Örnek
-
-```
-       use Netgsm\Netsantral\Package as NetsantralPackage;
-       
-       $data=array(   
-            "customer_num"=>"553xxxxxxx",
-            "pbxnum"=>"850xxxxxxx",
-            "internal_num"=>"110",
-            "ring_timeout"=>"20",
-            "crm_id"=>"xxx",
-            "wait_response"=>"1",
-            "originate_order"=>"if",
-            "trunk"=>"312xxxxxxx",
-            "call_time"=>"49",
-            // "caller_text"=>"merhaba bu bir test aramasıdır.",
-            // "called_text"=>"merhaba bu bir test aramasıdır.",
-            "called_record"=>"mesaidisistandart.wav"
-        );
-        $islem=new NetsantralPackage;
-        $sonuc=$islem->cagribaslat($data);
-        
-        echo '<pre>';
-            print_r($sonuc);
-        echo '<pre>';
-
-```
-### İç Dahiliye Çağrı Başlatma
+##  İç Dahiliye Çağrı Başlatma
 
 ```
        use Netgsm\Netsantral\Package as NetsantralPackage;
@@ -255,7 +289,28 @@ Bu servis, santral numaranızdan (312xxxxxxx,850xxxxxxx) santralinizdeki registe
         echo '<pre>';
 
 ```
-
+#### Başarılı istek örnek sonuç
+```
+Array
+(
+    [unique_id] => sip3-xxxxxxxx.53336
+    [caller_num] => 102
+    [called_num] => 553xxxxxxx
+    [crm_id] => xxx
+    [response] => originate
+    [status] => Success
+    [message] => Successfully
+)
+```
+#### Başarısız istek örnek sonuç
+```
+Array
+(
+    [code] => 30
+    [status] => Error
+    [message] => Eksik yada yanlis parametre 2 
+)
+```
 
 ### Çağrı Sonlandırma
 
@@ -301,6 +356,25 @@ Parametre olarak aldığı uniqueid değerine sahip kanalı santraliniz üzerind
 
 ```
 
+#### Başarılı istek örnek sonuç
+```
+Array
+(
+    [crm_id] => xxx
+    [response] => hangup
+    [status] => Success
+    [message] => Successful
+)
+```
+#### Başarısız istek örnek sonuç
+```
+Array
+(
+    [code] => 30
+    [status] => Error
+    [message] => Eksik yada yanlis parametre
+)
+```
 ## Servisten Alınan Örnek Cevap
 
 <table>
@@ -396,6 +470,29 @@ Parametre olarak aldığı uniqueid değerine sahip kanalı santraliniz üzerind
         echo '<pre>';
 
 ```
+
+##### Başarılı istek örnek sonuç
+
+```
+Array
+(
+    [crm_id] => xxx
+    [response] => muteaudio
+    [status] => Success
+    [message] => Successful
+)
+
+```
+##### Başarısız istek örnek sonuç
+
+```
+Array
+(
+    [code] => 30
+    [status] => Error
+    [message] => Eksik yada yanlis parametre
+)
+```
 ## Çağrı Bağlama
 
 İki dış numarayı arayarak birbirine bağlama işlemidir.  
@@ -486,7 +583,28 @@ Parametre olarak aldığı uniqueid değerine sahip kanalı santraliniz üzerind
         echo '<pre>';
 
 ```
-
+##### Başarılı istek örnek sonuç
+```
+Array
+(
+    [unique_id] => sip3-1675766849.90638
+    [caller_num] => 553xxxxxxx
+    [called_num] => 537xxxxxxx
+    [crm_id] => xxx
+    [response] => linkup
+    [status] => Success
+    [message] => Successfully
+)
+```
+##### Başarısız istek örnek sonuç
+```
+Array
+(
+    [code] => 30
+    [status] => Error
+    [message] => Eksik yada yanlis parametre 2 
+)
+```
 ## Çağrı Transfer
 
 
@@ -538,7 +656,24 @@ Parametre olarak aldığı uniqueid değerine sahip kanalı santraliniz üzerind
         echo '<pre>';
 
 ```
-
+##### Başarılı istek örnek sonuç
+```
+Array
+(
+    [crm_id] => 123456
+    [response] => xfer
+    [status] => Success
+    [message] => Successful
+)
+```
+##### Başarısız istek örnek sonuç
+```
+Array
+(
+    [status] => Error
+    [message] => Hatali istek: URI hatali
+)
+```
 ## Servisten message parametresiyle dönen değerler
 
 <table>
@@ -626,7 +761,23 @@ Parametre olarak aldığı uniqueid değerine sahip kanalı santraliniz üzerind
         echo '<pre>';
 
 ```
-
+##### Başarılı istek örnek sonuç
+```
+Array
+(
+    [crm_id] => 345
+    [status] => Success
+    [message] => Successful
+)
+```
+##### Başarısız istek örnek sonuç
+```
+Array
+(
+    [status] => Error
+    [message] => Bir veya birden fazla kuyrukta hata olustuUnable to add interface to queue: No such queue
+)
+```
 ## Kuyruktan Dahili Çıkarma
 
 <table>
@@ -669,8 +820,25 @@ Parametre olarak aldığı uniqueid değerine sahip kanalı santraliniz üzerind
         echo '<pre>';
 
 ```
-
-## Kuyruktan Dahili Çıkarma
+##### Başarılı istek örnek sonuç
+```
+Array
+(
+    [crm_id] => 345
+    [status] => Success
+    [message] => Successful
+)
+```
+##### Başarısız istek örnek sonuç
+```
+Array
+(
+    [status] => Error
+    [message] => Bir veya birden fazla kuyrukta hata olustuUnable to remove interface from queue: No such queue
+)
+```
+## Kuyruk Durum Sorgula  
+Santralinizdeki kuyruklardaki olaylar anlık olarak izlenebilir.  
 
 <table>
 <thead>
@@ -708,23 +876,57 @@ Parametre olarak aldığı uniqueid değerine sahip kanalı santraliniz üzerind
 
 ```
 
-## Kuyruk Durum Sorgulama
+##### Başarılı istek örnek sonuç
 
-Santralinizdeki kuyruklardaki olaylar anlık olarak izlenebilir.
+
 
 ```
-        use Netgsm\Netsantral\Package as NetsantralPackage;
-        $data=array(
-            "queue"=>"muhasebe",
-            "crm_id"=>"345",
-            );
-     
-        $islem=new NetsantralPackage;
-        $sonuc=$islem->kuyrukSorgula($data);
-        echo '<pre>';
-            print_r($sonuc);
-        echo '<pre>';
+Array
+(
+    [crm_id] => 345
+    [pbx_num] => 3129116589
+    [queues] => Array
+        (
+            [0] => stdClass Object
+                (
+                    [queuename] => 3129116589-queue-Operator
+                    [callers] => stdClass Object
+                        (
+                        )
 
+                    [agents] => Array
+                        (
+                            [0] => stdClass Object
+                                (
+                                    [agent] => 101
+                                    [status] => empty
+                                    [membership] => static
+                                    [paused] => false
+                                    [reason] => 
+                                )
+
+                        )
+
+                    [calls] => 0
+                    [holdtime] => 0
+                    [talktime] => 0
+                    [completed] => 0
+                    [abondaned] => 0
+                    [max] => 0
+                )
+
+        )
+
+)       
+
+```
+##### Başarısız istek örnek sonuç
+```
+(
+    [code] => 70
+    [status] => Error
+    [message] => 312xxxxxxx isimli santrale ait boyle bir kuyruk yoktur
+)
 ```
 
 ### Servisten Alınan Cevap Parametreleri
@@ -870,6 +1072,24 @@ Santralinizdeki kuyruklardaki olaylar anlık olarak izlenebilir.
         echo '<pre>';
 
 ```
+##### Başarılı istek örnek sonuç
+```
+Array
+(
+    [crm_id] => 345
+    [status] => Success
+    [message] => Successful
+)
+```
+
+##### Başarısız istek örnek sonuç
+```
+Array
+(
+    [status] => Error
+    [message] => Bir veya birden fazla kuyrukta hata olustuInterface not found
+)
+```
 ## Kuyruğa Dış Numara Ekleme/Çıkarma
 
 Netsantral'iniz üzerinde kuyruğa harici (dahili dışında) numara/ekleyip çıkarma işlemi gerçekleştirebilirsiniz. Gelen çağrıları karşılamasını istediğiniz, belirleyeceğiniz kuyruğa (departmana) harici numara eklemek ya da çıkarabilirsiniz.  
@@ -922,7 +1142,24 @@ $data=array(
         echo '<pre>';
 
 ```
+##### Başarılı istek örnek sonuç
+```
+Array
+(
+    [code] => 200
+    [message] => queuedelnumber islemi yapildi.
+)
+```
 
+##### Başarısız istek örnek sonuç
+```
+Array
+(
+    [code] => 70
+    [error] => gecersiz tenant
+)
+
+```
 <table>
 <thead>
 <tr>
@@ -1029,17 +1266,42 @@ Linkup API'ye (Çağrı bağlama API) benzer mantıkta çalışan, called parame
         echo '<pre>';
     
   ```
+ ##### Başarılı istek örnek sonuç 
+   ``` 
+Array
+(
+    [unique_id] => sip3-1675768456.108813
+    [caller_num] => 3129116589
+    [called_num] => 3129116589
+    [crm_id] => 1234
+    [response] => dynamic_redirect
+    [status] => Success
+    [message] => Successfully
+)
+  ```
+   ##### Başarısız istek örnek sonuç 
+   ``` 
+Array
+(
+    [caller_num] => caller
+    [called_num] => 3129116589
+    [crm_id] => 1234
+    [response] => dynamic_redirect
+    [status] => Error
+    [message] => Unsuccessful
+)
+  ```
 ### Otomatik Arama Nedir 
 
 Netsantral'iniz üzerinden otomatik arama yaparak müşterilere duyuru, onay alma, hatırlatma, borç bilgisi okutma gibi işlemleri yaptırabilirsiniz.
 
 Neler Yapılabilir ?
 
-Otomatik Arama listenizi  oluşturabilirsiniz.  
-Tüm otomatik aramalarınızı listeleyebilirsiniz.  
-Serviste numara bazlı otomatik arama geçmişini görebilirsiniz.  
-Dinamik listenize yeni numaralar ekleyebilirsiniz.  
-Dinamik listenizi durdurup, başlatabilirsiniz. 
+- Otomatik Arama listenizi  oluşturabilirsiniz.  
+- Tüm otomatik aramalarınızı listeleyebilirsiniz.  
+- Serviste numara bazlı otomatik arama geçmişini görebilirsiniz.  
+- Dinamik listenize yeni numaralar ekleyebilirsiniz.  
+- Dinamik listenizi durdurup, başlatabilirsiniz. 
 
 ### Arama Listesi Oluştur 
 
@@ -1152,8 +1414,9 @@ Bazı entegrasyonlardan bu listeye numara ekletmesi yapabilirsiniz.
 </table>
 
 ```
-use Netgsm\Netsantral\Package as NetsantralPackage;
-$islem=new NetsantralPackage;
+		use Netgsm\Netsantral\Package as NetsantralPackage;
+
+        $islem=new NetsantralPackage;
         $data=array(
             "list_name"       => "list_name",
             "list_prefix"     => "110",
@@ -1170,17 +1433,20 @@ $islem=new NetsantralPackage;
             "destination_name"=> "muhasebe",
             "queue_limit"     => "1",                                      
             "groups"          => ["otolist"],
+            "callstop_type "    =>1,
             "numbers"         => [
 				array( "number" => "553xxx","name" => "name1"),
 			  ]
                 
         ); 
-        $sonuc=$islem->otoaramalisteolustur($data);
+
+	$sonuc=$islem->otoAramaListeOlustur($data);
         echo '<pre>';
             print_r($sonuc);
         echo '<pre>';
-
 ```
+
+
 #### queue_limit_type açıklamaları
 
 <table>
@@ -1247,6 +1513,64 @@ $islem=new NetsantralPackage;
 </tbody>
 </table>
 
+
+##### Başarılı istek örnek sonuç
+```
+Array
+(
+    [header] => stdClass Object
+        (
+            [error] => 
+            [code] => 200
+            [message] => Otomatik arama listesi başarıyla oluşturuldu.
+        )
+
+    [body] => Array
+        (
+            [0] => stdClass Object
+                (
+                    [id] => 12504
+                    [list_name] => list_name
+                    [list_prefix] => 110
+                    [list_type] => 2
+                    [list_startdate] => 2023-02-01
+                    [list_stopdate] => 2023-02-01
+                    [list_starttime] => 11:00
+                    [list_stoptime] => 11:15
+                    [retry_count] => 1
+                    [try_time] => 5
+                    [department] => muhasebe
+                    [trunk] => 312xxxxxxx
+                    [destination_type] => queue
+                    [destination_name] => muhasebe
+                    [queue_limit] => 1
+                    [groups] => Array
+                        (
+                        )
+
+                )
+
+        )
+)
+```
+
+##### Başarısız istek örnek sonuç
+```
+Array
+(
+    [header] => stdClass Object
+        (
+            [error] => 1
+            [code] => 70
+            [message] => Hatalı sorgulama. Gönderdiğiniz parametrelerden birisi hatalı veya zorunlu alanlardan birinin eksik olduğunu ifade eder. Departman adı belirtmek zorunludur.
+        )
+
+    [body] => Array
+        (
+        )
+
+)
+```
 ### Otomatik Arama Listele
 
 <table>
@@ -1274,7 +1598,63 @@ $islem=new NetsantralPackage;
         echo '<pre>';
 
 ```
+##### Başarılı istek örnek sonuç
+```
+Array
+(
+    [header] => stdClass Object
+        (
+            [error] => 
+            [code] => 200
+            [message] => Otomatik arama listeleme başarılı.
+        )
 
+    [body] => Array
+        (
+            [0] => stdClass Object
+                (
+                    [list_id] => 12505
+                    [list_name] => list_name
+                    [list_status] => 0
+                    [list_prefix] => 110
+                    [list_type] => 2
+                    [list_startdate] => 2023-02-01
+                    [list_stopdate] => 2023-02-01
+                    [list_starttime] => 11:00     
+                    [list_stoptime] => 11:15     
+                    [retry_count] => 1
+                    [try_time] => 5
+                    [department] => muhasebe
+                    [destination_type] => queue
+                    [destination_name] => muhasebe
+                    [queue_limit] => 1
+                    [groups] => Array
+                        (
+                        )
+
+                )
+
+        )
+
+)
+```
+##### Başarısız istek örnek sonuç
+```
+Array
+(
+    [header] => stdClass Object
+        (
+            [error] => 1
+            [code] => 400
+            [message] => HAtalı sorgulama. Bu id ye ait otomatik arama listesi yok yada yetkiniz yok.
+        )
+
+    [body] => Array
+        (
+        )
+
+)
+```
 ### Otomatik Arama Listesini Durdur/Başlat
 
 <table>
@@ -1310,7 +1690,46 @@ $islem=new NetsantralPackage;
         echo '<pre>';
 
 ```
+##### Başarılı istek örnek sonuç
+```
+Array
+(
+    [header] => stdClass Object
+        (
+            [error] => 
+            [code] => 200
+            [message] => Otomatik arama listesi başarıyla aktifleştirildi.
+        )
 
+    [body] => Array
+        (
+            [0] => stdClass Object
+                (
+                    [list_id] => 12505
+                    [status] => 1
+                )
+
+        )
+
+)
+```
+##### Başarısız istek örnek sonuç
+```
+Array
+(
+    [header] => stdClass Object
+        (
+            [error] => 1
+            [code] => 70
+            [message] => Hatalı sorgulama. Gönderdiğiniz parametrelerden birisi hatalı veya zorunlu alanlardan birinin eksik olduğunu ifade eder. Liste ID si yok.
+        )
+
+    [body] => Array
+        (
+        )
+
+)
+```
 ### Otomatik Arama Raporlama
 
 ```
@@ -1323,6 +1742,76 @@ $islem=new NetsantralPackage;
         echo '<pre>';
 	
 
+```
+##### Başarılı istek örnek sonuç
+```
+Array
+(
+    [header] => stdClass Object
+        (
+            [error] => 
+            [code] => 200
+            [message] => Raporlama basarili.
+        )
+
+    [body] => Array
+        (
+            [0] => stdClass Object
+                (
+                    [numbers_status] => Array
+                        (
+                            [0] => stdClass Object
+                                (
+                                    [type] => Hiç aranmamış
+                                    [count] => 0
+                                )
+
+                            [1] => stdClass Object
+                                (
+                                    [type] => Başarılı
+                                    [count] => 0
+                                )
+
+                            [2] => stdClass Object
+                                (
+                                    [type] => Başarısız
+                                    [count] => 0
+                                )
+
+                            [3] => stdClass Object
+                                (
+                                    [type] => Tekrar aranacak
+                                    [count] => 0
+                                )
+
+                        )
+
+                    [numbers] => Array
+                        (
+                        )
+
+                )
+
+        )
+
+)
+```
+##### Başarısız istek örnek sonuç
+```
+Array
+(
+    [header] => stdClass Object
+        (
+            [error] => 1
+            [code] => 301
+            [message] => Gönderilen ID değeri numerik ve sıfırdan büyük bir değer olmalıdır. 
+        )
+
+    [body] => Array
+        (
+        )
+
+)
 ```
 ### Listeye Numara Ekle
 
@@ -1365,7 +1854,7 @@ Dinamik devam eden ya da durdurulmuş listenize numara ekleyebilirsiniz.
 	$islem=new NetsantralPackage;
         $data=array(
             'list_id'=>"12431",
-            'numbers'=>array( "number" => "542xxxxxxx","name" => "fatih")
+            'numbers'=>array( "number" => "542xxxxxxx","name" => "netgsm")
         );
         $sonuc=$islem->listeNumEkle($data);
         echo '<pre>';
@@ -1373,7 +1862,57 @@ Dinamik devam eden ya da durdurulmuş listenize numara ekleyebilirsiniz.
         echo '<pre>';
 
 ```
+##### Başarılı istek örnek sonuç
+```
+Array
+(
+    [header] => stdClass Object
+        (
+            [error] => 
+            [code] => 200
+            [message] => 12505 ID numaralı projeye 1 numara eklenemedi. 
+        )
 
+    [body] => Array
+        (
+            [0] => stdClass Object
+                (
+                    [list_id] => 12505
+                    [list_name] => list_name
+                    [numbers] => Array
+                        (
+                            [0] => stdClass Object
+                                (
+                                    [number] => 542xxxxxxx
+                                    [name] => netgsm
+                                    [status] => error
+                                )
+
+                        )
+
+                )
+
+        )
+
+)
+```
+##### Başarısız istek örnek sonuç
+```
+Array
+(
+    [header] => stdClass Object
+        (
+            [error] => 1
+            [code] => 70
+            [message] => Hatalı sorgulama. Gönderdiğiniz parametrelerden birisi hatalı veya zorunlu alanlardan birinin eksik olduğunu ifade eder. Numaraların ekleneceği proje ID si girilmelidir.
+        )
+
+    [body] => Array
+        (
+        )
+
+)
+```
 ### Listeden Numara Çıkar
 <table>
 <thead>
@@ -1540,7 +2079,41 @@ Görüşme kayıtlarınızı, belirteceğiniz zaman aralığına göre, çağrı
             print_r($sonuc);
         echo '<pre>';
 ```
+##### Başarılı istek örnek sonuç
+```
+Array
+(
+    [0] => stdClass Object
+        (
+            [uniqueid] => sip3-1675767033.92222
+            [values] => Array
+                (
+                    [0] => stdClass Object
+                        (
+                            [date] => 07.02.2023 13:50:33
+                            [destination] => 553xxxxxxx
+                            [source] => 102
+                            [duration] => 54
+                            [direction] => 0
+                            [recording] => https://dosyaindir.netgsm.com.tr/upload.php?tip=1&a=8f344a1062ac54................
+                            [line] => 312xxxxxxx
+                            [directory] => "102" <102>
+                            [commonID] => 36xxxxxx
+                        )
 
+                )
+
+        )
+)
+```
+##### Başarısız istek örnek sonuç
+```
+Array
+(
+    [code] => 40
+    [error] => Kayit bulunamadi
+)
+```
 ###### SERVİSTEN GELEN CEVAP  
 
 <table>
@@ -1695,8 +2268,28 @@ Gelen çağrılarınızdan oluşan tarih bazlı istatistiğe bu servisle ulaşab
 </tr>
 </tbody>
 </table>
-
-
+##### Başarılı istek örnek sonuç
+```
+Array
+(
+    [date] => 01.02.2023
+    [answered] => 2
+    [noanswer] => 0
+    [t_calltime] => 39
+    [t_waittime] => 42
+    [max_waiting] => 16
+    [avr_waiting] => 11
+    [avr_answered] => 20
+)
+```
+##### Başarısız istek örnek sonuç
+```
+Array
+(
+    [code] => 40
+    [error] => Kayit Bulunamadi
+)
+```
 ### Gün Detayı 
 
 Terkedilmiş, cevapsız, cevaplanan çağrı bilgisine ulaşılabilir.  
@@ -1710,3 +2303,26 @@ Terkedilmiş, cevapsız, cevaplanan çağrı bilgisine ulaşılabilir.
         echo '<pre>';
             print_r($sonuc);
         echo '<pre>';
+
+##### Başarılı istek örnek sonuç
+```
+Array
+(
+    [date] => 01.02.2023
+    [answered] => 2
+    [noanswer] => 0
+    [t_calltime] => 39
+    [t_waittime] => 42
+    [max_waiting] => 16
+    [avr_waiting] => 11
+    [avr_answered] => 20
+)
+```
+##### Başarısız istek örnek sonuç
+```
+Array
+(
+    [code] => 40
+    [error] => Kayit Bulunamadi
+)
+```
