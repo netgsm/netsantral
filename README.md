@@ -704,7 +704,7 @@ Parametre olarak aldığı uniqueid değerine sahip kanalı santraliniz üzerind
 
 ```
 
-## Kuyruktan Dahili Çıkarma
+## Kuyruktan Sorgula
 
 <table>
 <thead>
