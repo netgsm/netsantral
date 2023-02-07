@@ -2264,7 +2264,7 @@ Gelen çağrılarınızdan oluşan tarih bazlı istatistiğe bu servisle ulaşab
 </tr>
 </tbody>
 </table>
-##### Başarılı istek örnek sonuç
+##### Başarılı istek örnek sonuç  
 ```
 Array
 (
@@ -2299,7 +2299,7 @@ Terkedilmiş, cevapsız, cevaplanan çağrı bilgisine ulaşılabilir.
         echo '<pre>';
             print_r($sonuc);
         echo '<pre>';
-
+```
 ##### Başarılı istek örnek sonuç
 ```
 Array
