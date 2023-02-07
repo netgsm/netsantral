@@ -470,6 +470,29 @@ Array
         echo '<pre>';
 
 ```
+
+## Başarılı istek örnek sonuç
+
+```
+Array
+(
+    [crm_id] => xxx
+    [response] => muteaudio
+    [status] => Success
+    [message] => Successful
+)
+
+```
+## Başarısız istek örnek sonuç
+
+```
+Array
+(
+    [code] => 30
+    [status] => Error
+    [message] => Eksik yada yanlis parametre
+)
+```
 ## Çağrı Bağlama
 
 İki dış numarayı arayarak birbirine bağlama işlemidir.  
@@ -560,7 +583,28 @@ Array
         echo '<pre>';
 
 ```
-
+### Başarılı istek örnek sonuç
+```
+Array
+(
+    [unique_id] => sip3-1675766849.90638
+    [caller_num] => 553xxxxxxx
+    [called_num] => 537xxxxxxx
+    [crm_id] => xxx
+    [response] => linkup
+    [status] => Success
+    [message] => Successfully
+)
+```
+### Başarısız istek örnek sonuç
+```
+Array
+(
+    [code] => 30
+    [status] => Error
+    [message] => Eksik yada yanlis parametre 2 
+)
+```
 ## Çağrı Transfer
 
 
@@ -612,7 +656,24 @@ Array
         echo '<pre>';
 
 ```
-
+### Başarılı istek örnek sonuç
+```
+Array
+(
+    [crm_id] => 123456
+    [response] => xfer
+    [status] => Success
+    [message] => Successful
+)
+```
+### Başarısız istek örnek sonuç
+```
+Array
+(
+    [status] => Error
+    [message] => Hatali istek: URI hatali
+)
+```
 ## Servisten message parametresiyle dönen değerler
 
 <table>
