@@ -1072,6 +1072,24 @@ Array
         echo '<pre>';
 
 ```
+##### Başarılı istek örnek sonuç
+```
+Array
+(
+    [crm_id] => 345
+    [status] => Success
+    [message] => Successful
+)
+```
+
+##### Başarısız istek örnek sonuç
+```
+Array
+(
+    [status] => Error
+    [message] => Bir veya birden fazla kuyrukta hata olustuInterface not found
+)
+```
 ## Kuyruğa Dış Numara Ekleme/Çıkarma
 
 Netsantral'iniz üzerinde kuyruğa harici (dahili dışında) numara/ekleyip çıkarma işlemi gerçekleştirebilirsiniz. Gelen çağrıları karşılamasını istediğiniz, belirleyeceğiniz kuyruğa (departmana) harici numara eklemek ya da çıkarabilirsiniz.  
@@ -1124,7 +1142,24 @@ $data=array(
         echo '<pre>';
 
 ```
+##### Başarılı istek örnek sonuç
+```
+Array
+(
+    [code] => 200
+    [message] => queuedelnumber islemi yapildi.
+)
+```
 
+##### Başarısız istek örnek sonuç
+```
+Array
+(
+    [code] => 70
+    [error] => gecersiz tenant
+)
+
+```
 <table>
 <thead>
 <tr>
@@ -1230,6 +1265,31 @@ Linkup API'ye (Çağrı bağlama API) benzer mantıkta çalışan, called parame
             print_r($sonuc);
         echo '<pre>';
     
+  ```
+ ##### Başarılı istek örnek sonuç 
+   ``` 
+Array
+(
+    [unique_id] => sip3-1675768456.108813
+    [caller_num] => 3129116589
+    [called_num] => 3129116589
+    [crm_id] => 1234
+    [response] => dynamic_redirect
+    [status] => Success
+    [message] => Successfully
+)
+  ```
+   ##### Başarısız istek örnek sonuç 
+   ``` 
+Array
+(
+    [caller_num] => caller
+    [called_num] => 3129116589
+    [crm_id] => 1234
+    [response] => dynamic_redirect
+    [status] => Error
+    [message] => Unsuccessful
+)
   ```
 ### Otomatik Arama Nedir 
 
