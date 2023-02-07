@@ -1414,8 +1414,9 @@ Bazı entegrasyonlardan bu listeye numara ekletmesi yapabilirsiniz.
 </table>
 
 ```
-use Netgsm\Netsantral\Package as NetsantralPackage;
-$islem=new NetsantralPackage;
+		use Netgsm\Netsantral\Package as NetsantralPackage;
+
+        $islem=new NetsantralPackage;
         $data=array(
             "list_name"       => "list_name",
             "list_prefix"     => "110",
@@ -1432,17 +1433,16 @@ $islem=new NetsantralPackage;
             "destination_name"=> "muhasebe",
             "queue_limit"     => "1",                                      
             "groups"          => ["otolist"],
+            "callstop_type "    =>1,
             "numbers"         => [
 				array( "number" => "553xxx","name" => "name1"),
 			  ]
                 
         ); 
-        $sonuc=$islem->otoaramalisteolustur($data);
-        echo '<pre>';
-            print_r($sonuc);
-        echo '<pre>';
 
 ```
+
+
 #### queue_limit_type açıklamaları
 
 <table>
@@ -1509,6 +1509,64 @@ $islem=new NetsantralPackage;
 </tbody>
 </table>
 
+
+##### Başarılı istek örnek sonuç
+```
+Array
+(
+    [header] => stdClass Object
+        (
+            [error] => 
+            [code] => 200
+            [message] => Otomatik arama listesi başarıyla oluşturuldu.
+        )
+
+    [body] => Array
+        (
+            [0] => stdClass Object
+                (
+                    [id] => 12504
+                    [list_name] => list_name
+                    [list_prefix] => 110
+                    [list_type] => 2
+                    [list_startdate] => 2023-02-01
+                    [list_stopdate] => 2023-02-01
+                    [list_starttime] => 11:00
+                    [list_stoptime] => 11:15
+                    [retry_count] => 1
+                    [try_time] => 5
+                    [department] => muhasebe
+                    [trunk] => 312xxxxxxx
+                    [destination_type] => queue
+                    [destination_name] => muhasebe
+                    [queue_limit] => 1
+                    [groups] => Array
+                        (
+                        )
+
+                )
+
+        )
+)
+```
+
+##### Başarısız istek örnek sonuç
+```
+Array
+(
+    [header] => stdClass Object
+        (
+            [error] => 1
+            [code] => 70
+            [message] => Hatalı sorgulama. Gönderdiğiniz parametrelerden birisi hatalı veya zorunlu alanlardan birinin eksik olduğunu ifade eder. Departman adı belirtmek zorunludur.
+        )
+
+    [body] => Array
+        (
+        )
+
+)
+```
 ### Otomatik Arama Listele
 
 <table>
