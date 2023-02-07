@@ -141,6 +141,28 @@ Bu servis, santral numaranızdan (312xxxxxxx,850xxxxxxx) santralinizdeki registe
         echo '<pre>';
 
 ```
+#### Başarılı istek örnek sonuç
+```
+Array
+(
+    [unique_id] => sip3-xxxxxxxx.53336
+    [caller_num] => 102
+    [called_num] => 553xxxxxxx
+    [crm_id] => xxx
+    [response] => originate
+    [status] => Success
+    [message] => Successfully
+)
+```
+#### Başarısız istek örnek sonuç
+```
+Array
+(
+    [code] => 30
+    [status] => Error
+    [message] => Eksik yada yanlis parametre 2 
+)
+```
 ## Sistemden Alınan Cevap
 
 <table>
