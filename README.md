@@ -6,7 +6,7 @@
 ![alt text](https://github.com/netgsm/netsantral/blob/main/netsantral.jpg?raw=true)
 
 
-NetSantral paket aboneliği bulunan kullanıcılarımız için laravel paketidir.
+NetSantral paket aboneliği bulunan kullanıcılarımız için composer paketidir.
 
 # İletişim & Destek
 
@@ -21,6 +21,10 @@ https://www.netgsm.com.tr/dokuman/
 ### Supported Laravel Versions
 
 Laravel 6.x, Laravel 7.x, Laravel 8.x, Laravel 9.x, 
+
+### Supported Symfony Versions
+
+Symfony 4.x, Symfony 5.x, Symfony 6.x
 
 ### Supported Php Versions
 
