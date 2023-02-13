@@ -7,7 +7,26 @@ use Exception;
 class Package
 {
 
-    
+  private $username;
+  private $password;
+  public function __construct()
+  {
+      if(isset($_ENV['NETGSM_USERCODE']))
+      {
+          $this->username=$_ENV['NETGSM_USERCODE'];
+      }
+      else{
+          $this->username=null;
+      }
+      if(isset($_ENV['NETGSM_PASSWORD']))
+      {
+          $this->password=$_ENV['NETGSM_PASSWORD'];
+      }
+      else{
+          $this->password=null;
+      }
+      
+  }
     public function cagribaslat(array $data):array
     {
         
@@ -24,9 +43,8 @@ class Package
         !isset($data['caller_record']) ? $data['caller_record']=null:$data['caller_record']=$data['caller_record'];
         !isset($data['called_record']) ? $data['called_record']=null:$data['called_record']=$data['called_record'];
         !isset($data['wait_response']) ? $data['wait_response']=0:$data['wait_response']=$data['wait_response'];
-        $username=env("NETGSM_USERCODE");
-        $password=env("NETGSM_PASSWORD");
-        $url= "http://crmsntrl.netgsm.com.tr:9111/".$username."/originate?username=".$username."&password=".$password."&customer_num=".$data["customer_num"]."&pbxnum=".$data['pbxnum']."&internal_num=".$data['internal_num']."&ring_timeout=".$data['ring_timeout']."&crm_id=".$data['crm_id']."&wait_response=".$data['wait_response']."&originate_order=".$data["originate_order"]."&trunk=".$data["trunk"];
+       
+        $url= "http://crmsntrl.netgsm.com.tr:9111/".$this->username."/originate?username=".$this->username."&password=".$this->password."&customer_num=".$data["customer_num"]."&pbxnum=".$data['pbxnum']."&internal_num=".$data['internal_num']."&ring_timeout=".$data['ring_timeout']."&crm_id=".$data['crm_id']."&wait_response=".$data['wait_response']."&originate_order=".$data["originate_order"]."&trunk=".$data["trunk"];
       
         if(isset($data['call_time'])){
           $url.="&call_time=".$data['call_time'];
@@ -80,9 +98,8 @@ class Package
         !isset($data['crm_id']) ? $data['crm_id']=null:$data['crm_id']=$data['crm_id']; 
         !isset($data['hide_callerid']) ? $data['hide_callerid']=null:$data['hide_callerid']=$data['hide_callerid'];      
         !isset($data['wait_response']) ? $data['wait_response']=0:$data['wait_response']=$data['wait_response'];
-        $username=env("NETGSM_USERCODE");
-        $password=env("NETGSM_PASSWORD");
-        $url="http://crmsntrl.netgsm.com.tr:9111/".$username."/local?username=".$username."&password=".$password."&called=".$data['called']."&pbxnum=".$data['pbxnum']."&caller=".$data['caller']."&ring_timeout=".$data['ring_timeout']."&crm_id=".$data['crm_id']."&wait_response=".$data['wait_response'];
+        
+        $url="http://crmsntrl.netgsm.com.tr:9111/".$this->username."/local?username=".$this->username."&password=".$this->password."&called=".$data['called']."&pbxnum=".$data['pbxnum']."&caller=".$data['caller']."&ring_timeout=".$data['ring_timeout']."&crm_id=".$data['crm_id']."&wait_response=".$data['wait_response'];
        
       
         if(isset($data['call_time'])){
@@ -128,14 +145,13 @@ class Package
     }
     public function cagrisessizeal(array $data)
     {
-      $username=env("NETGSM_USERCODE");
-      $password=env("NETGSM_PASSWORD");
+      
       if(!isset($data['unique_id']) || !isset($data['crm_id']) || !isset($data['direction']) || !isset($data['state']) )
       {
           $response['message']="Eksik yada yanlis parametre!";
           return $response;
       }
-      $url= 'http://crmsntrl.netgsm.com.tr:9111/'.$username.'/muteaudio?username='.$username.'&password='.$password.'&unique_id='.$data['unique_id'].'&crm_id='.$data['crm_id'].'&direction='.$data['direction'].'&state='.$data['state'];
+      $url= 'http://crmsntrl.netgsm.com.tr:9111/'.$this->username.'/muteaudio?username='.$this->username.'&password='.$this->password.'&unique_id='.$data['unique_id'].'&crm_id='.$data['crm_id'].'&direction='.$data['direction'].'&state='.$data['state'];
 
       $ch = curl_init($url);
       curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);  
@@ -153,14 +169,13 @@ class Package
     }
     public function cagrisonlandirma(array $data):array
     {
-      $username=env("NETGSM_USERCODE");
-       $password=env("NETGSM_PASSWORD");
+     
        if(!isset($data['unique_id']) || !isset($data['crm_id'])    )
        {
            $response['message']="Eksik parametre!";
            return $response;
        }
-      $url= "http://crmsntrl.netgsm.com.tr:9111/".$username."/hangup?username=".$username."&password=".$password."&unique_id=".$data['unique_id']."&crm_id=".$data['crm_id'];
+      $url= "http://crmsntrl.netgsm.com.tr:9111/".$this->username."/hangup?username=".$this->username."&password=".$this->password."&unique_id=".$data['unique_id']."&crm_id=".$data['crm_id'];
 
       $ch = curl_init($url);
       curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);  
@@ -191,9 +206,8 @@ class Package
         !isset($data['caller_record']) ? $data['caller_record']=null:$data['caller_record']=$data['caller_record'];
         !isset($data['called_record']) ? $data['called_record']=null:$data['called_record']=$data['called_record'];
         !isset($data['wait_response']) ? $data['wait_response']=0:$data['wait_response']=$data['wait_response'];
-      $username=env("NETGSM_USERCODE");
-       $password=env("NETGSM_PASSWORD");
-      $url= 'http://crmsntrl.netgsm.com.tr:9111/'.$username.'/linkup?username='.$username.'&password='.$password.'&caller='.$data['caller'].'&called='.$data['called'].'&ring_timeout='.$data['ring_timeout'].'&crm_id='.$data['crm_id'].'&wait_response='.$data['wait_response'].'&originate_order='.$data['originate_order'].'&trunk='.$data['trunk'];
+
+      $url= 'http://crmsntrl.netgsm.com.tr:9111/'.$this->username.'/linkup?username='.$this->username.'&password='.$this->password.'&caller='.$data['caller'].'&called='.$data['called'].'&ring_timeout='.$data['ring_timeout'].'&crm_id='.$data['crm_id'].'&wait_response='.$data['wait_response'].'&originate_order='.$data['originate_order'].'&trunk='.$data['trunk'];
       if(isset($data['call_time'])){
         $url.="&call_time=".$data['call_time'];
       }
@@ -235,9 +249,7 @@ class Package
       
       !isset($data['unique_id']) ? $data['unique_id']=null:$data['unique_id']=$data['unique_id'];
       !isset($data['crm_id']) ? $data['crm_id']=null:$data['crm_id']=$data['crm_id'];
-      $username=env("NETGSM_USERCODE");
-       $password=env("NETGSM_PASSWORD");
-      $url= "http://crmsntrl.netgsm.com.tr:9111/".$username."/".$data['type']."?username=".$username."&password=".$password."&exten=".$data['exten']."&unique_id=".$data["unique_id"]."&crm_id=".$data["crm_id"];
+      $url= "http://crmsntrl.netgsm.com.tr:9111/".$this->username."/".$data['type']."?username=".$this->username."&password=".$this->password."&exten=".$data['exten']."&unique_id=".$data["unique_id"]."&crm_id=".$data["crm_id"];
       
       
       $ch = curl_init($url);
@@ -262,9 +274,7 @@ class Package
       !isset($data['crm_id']) ? $data['crm_id']=null:$data['crm_id']=$data['crm_id'];
       !isset($data['penalty']) ? $data['penalty']=null:$data['penalty']=$data['penalty'];
 
-      $username=env("NETGSM_USERCODE");
-      $password=env("NETGSM_PASSWORD");
-      $url= "http://crmsntrl.netgsm.com.tr:9111/".$username."/agentlogin?username=".$username."&password=".$password."&crm_id=".$data['crm_id']."&exten=".$data['exten']."&queue=".$data['queue']."&paused=".$data['paused']."&penalty=".$data['penalty'];
+      $url= "http://crmsntrl.netgsm.com.tr:9111/".$this->username."/agentlogin?username=".$this->username."&password=".$this->password."&crm_id=".$data['crm_id']."&exten=".$data['exten']."&queue=".$data['queue']."&paused=".$data['paused']."&penalty=".$data['penalty'];
       
       $ch = curl_init($url);
       curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);  
@@ -285,9 +295,7 @@ class Package
       !isset($data['queue']) ? $data['queue']=null:$data['queue']=$data['queue'];
       !isset($data['paused']) ? $data['paused']=null:$data['paused']=$data['paused'];
       !isset($data['crm_id']) ? $data['crm_id']=null:$data['crm_id']=$data['crm_id'];
-      $username=env("NETGSM_USERCODE");
-      $password=env("NETGSM_PASSWORD");
-      $url= "http://crmsntrl.netgsm.com.tr:9111/8xxxxxxxxx/agentlogoff?username=".$username."&password=".$password."&crm_id=".$data["crm_id"]."&exten=".$data['exten']."&queue=".$data['queue'];
+      $url= "http://crmsntrl.netgsm.com.tr:9111/8xxxxxxxxx/agentlogoff?username=".$this->username."&password=".$this->password."&crm_id=".$data["crm_id"]."&exten=".$data['exten']."&queue=".$data['queue'];
 
         $ch = curl_init($url);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);  
@@ -306,9 +314,7 @@ class Package
     {
       !isset($data['queue']) ? $data['queue']=null:$data['queue']=$data['queue'];
       !isset($data['crm_id']) ? $data['crm_id']=null:$data['crm_id']=$data['crm_id'];
-      $username=env("NETGSM_USERCODE");
-      $password=env("NETGSM_PASSWORD");
-      $url= 'http://crmsntrl.netgsm.com.tr:9111/'.$username.'/queuestats?username='.$username.'&password='.$password.'&queue='.$data['queue'].'&crm_id='.$data['crm_id'];
+      $url= 'http://crmsntrl.netgsm.com.tr:9111/'.$this->username.'/queuestats?username='.$this->username.'&password='.$this->password.'&queue='.$data['queue'].'&crm_id='.$data['crm_id'];
       $ch = curl_init($url);
       curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);  
       $http_response = curl_exec($ch);
@@ -329,11 +335,7 @@ class Package
       !isset($data['queue']) ? $data['queue']=null:$data['queue']=$data['queue'];
       !isset($data['paused']) ? $data['paused']=null:$data['paused']=$data['paused'];
       !isset($data['reason']) ? $data['reason']=null:$data['reason']=$data['reason'];
-      $username=env("NETGSM_USERCODE");
-      $password=env("NETGSM_PASSWORD");
-     
-
-      $url= "http://crmsntrl.netgsm.com.tr:9111/".$username."/agentpause?username=".$username."&password=".$password."&crm_id=".$data['crm_id']."&exten=".$data['exten']."&queue=".$data['queue']."&paused=".$data['paused']."&reason=".$data['reason'];
+      $url= "http://crmsntrl.netgsm.com.tr:9111/".$this->username."/agentpause?username=".$this->username."&password=".$this->password."&crm_id=".$data['crm_id']."&exten=".$data['exten']."&queue=".$data['queue']."&paused=".$data['paused']."&reason=".$data['reason'];
       $ch = curl_init($url);
       curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);  
       $http_response = curl_exec($ch);
@@ -349,9 +351,6 @@ class Package
     }
     public function kuyrukDisNum(array $data):array
     {
-      $username=env("NETGSM_USERCODE");
-      $password=env("NETGSM_PASSWORD");
-
       !isset($data['command']) ? $data['command']=null:$data['command']=$data['command'];
       !isset($data['tenant']) ? $data['tenant']=null:$data['tenant']=$data['tenant'];
       !isset($data['queue']) ? $data['queue']=null:$data['queue']=$data['queue'];
@@ -359,7 +358,7 @@ class Package
       !isset($data['penalty']) ? $data['penalty']=null:$data['penalty']=$data['penalty'];
 
       try {
-        $arr_acc = array('username' => $username, 'password' => $password, 'command' => $data['command'], 'tenant' => $data['tenant'], 'queue' => $username.'-queue-'.$data['queue'] ,'no' => $data['no'], 'penalty' => $data['penalty']);				
+        $arr_acc = array('username' => $this->username, 'password' => $this->password, 'command' => $data['command'], 'tenant' => $data['tenant'], 'queue' => $this->username.'-queue-'.$data['queue'] ,'no' => $data['no'], 'penalty' => $data['penalty']);				
         $url_acc = "https://api.netgsm.com.tr/netsantral/queue";  
         $content_acc = json_encode($arr_acc);				
         $curl = curl_init($url_acc);
@@ -393,9 +392,7 @@ class Package
       !isset($data['crm_id']) ? $data['crm_id']=null:$data['crm_id']=$data['crm_id'];
       !isset($data['wait_response']) ? $data['wait_response']=null:$data['wait_response']=$data['wait_response'];
       !isset($data['trunk']) ? $data['trunk']=null:$data['trunk']=$data['trunk'];
-      $username=env("NETGSM_USERCODE");
-      $password=env("NETGSM_PASSWORD");
-      $url= "http://crmsntrl.netgsm.com.tr:9111/".$username."/dynamic_redirect?username=".$username."&password=".$password."&called=".$data['called']."&redirect_menu=".$data['redirect_menu']."&redirect_type=".$data['redirect_type']."&ring_timeout=".$data['ring_timeout']."&crm_id=".$data['crm_id']."&wait_response=".$data['wait_response']."&trunk=".$data['trunk'];
+      $url= "http://crmsntrl.netgsm.com.tr:9111/".$this->username."/dynamic_redirect?username=".$this->username."&password=".$this->password."&called=".$data['called']."&redirect_menu=".$data['redirect_menu']."&redirect_type=".$data['redirect_type']."&ring_timeout=".$data['ring_timeout']."&crm_id=".$data['crm_id']."&wait_response=".$data['wait_response']."&trunk=".$data['trunk'];
 
       if(isset($data['call_time'])){
           $url.="&call_time=".$data['call_time'];
@@ -419,12 +416,10 @@ class Package
     }
     public function otoAramaListeOlustur(array $data):array
     {
-      $username=env("NETGSM_USERCODE");
-      $password=env("NETGSM_PASSWORD");
       try {    
 
         $arr_acc = array(
-          "header" => array( "username" => $username,"password" => $password),
+          "header" => array( "username" => $this->username,"password" => $this->password),
           "body" => array(  
           "event" => "addautocall",
           "data" => $data       
@@ -460,13 +455,11 @@ class Package
     public function otomatikAramaList(array $data):array
     {
 
-      $username=env("NETGSM_USERCODE");
-      $password=env("NETGSM_PASSWORD");
       !isset($data['list_id']) ? $data['list_id']=null:$data['list_id']=$data['list_id'];
       try {    
 
         $arr_acc = array(
-          "header" => array( "username" => $username,"password" => $password),
+          "header" => array( "username" => $this->username,"password" => $this->password),
           "body" => array(  
           "event"   => "listautocall",
           "list_id" =>  $data['list_id']     
@@ -500,9 +493,6 @@ class Package
     }
     public function listChangeStatus(array $data):array
     {
-      $username=env("NETGSM_USERCODE");
-      $password=env("NETGSM_PASSWORD");
-
       if(!isset($data['status']) || !isset($data['list_id']) )
       {
         $response['message']='Eksik parametre!';
@@ -511,7 +501,7 @@ class Package
       try {    
 
         $arr_acc = array(
-        "header" => array( "username" => $username,"password" => $password),
+        "header" => array( "username" => $this->username,"password" => $this->password),
         "body" => array(  
         "event" => "updateliststatus",
         "list_id" => $data['list_id'],
@@ -552,12 +542,10 @@ class Package
         return $response;
       }
 
-      $username=env("NETGSM_USERCODE");
-      $password=env("NETGSM_PASSWORD");
         try {    
 
           $arr_acc = array(
-          "header" => array( "username" => $username,"password" => $password),
+          "header" => array( "username" => $this->username,"password" => $this->password),
           "body" => array(  
           "event" => "reportautocall",
           "list_id" => $data['list_id']		
@@ -597,12 +585,10 @@ class Package
         return $response;
       }
 
-    $username=env("NETGSM_USERCODE");
-   $password=env("NETGSM_PASSWORD"); 
       try {
 
         $arr_acc = array(
-            "header" => array( "username" => $username,"password" => $password),
+            "header" => array( "username" => $this->username,"password" => $this->password),
             "body" => array(
                 "event" => "addnumber",
                 "list_id" => $data['list_id'],
@@ -645,13 +631,11 @@ class Package
         return $response;
       }
       
-      $username=env("NETGSM_USERCODE");
-      $password=env("NETGSM_PASSWORD");
       
       try {
 
         $arr_acc = array(
-          "header" => array( "username" => $username,"password" => $password),
+          "header" => array( "username" => $this->username,"password" => $this->password),
           "body" => array(
               "event" => "deletenumber",
               "list_id" => "12505",
@@ -688,8 +672,6 @@ class Package
     public function listeNumGuncelle(array $data):array
     {
 
-      $username=env("NETGSM_USERCODE");
-      $password=env("NETGSM_PASSWORD");
       if(!isset($data['list_id'])  )
       {
         $response['list_id']='Eksik parametre!';
@@ -698,7 +680,7 @@ class Package
       try {
 
         $arr_acc = array(
-            "header" => array( "username" => $username,"password" => $password),
+            "header" => array( "username" => $this->username,"password" => $this->password),
             "body" => array(
                 "event" => "updatenumber",
                 "list_id" => $data['list_id'],
@@ -732,11 +714,10 @@ class Package
     }
     public function gorusmeDetay(array $data):array
     {
-      $username=env("NETGSM_USERCODE");
-      $password=env("NETGSM_PASSWORD");
+      
       try {
         if(isset($data['uniqueid'])){
-          $arr_acc = array('usercode' => $username, 'password' => $password, 'uniqueid' => $data['uniqueid']);
+          $arr_acc = array('usercode' => $this->username, 'password' => $this->password, 'uniqueid' => $data['uniqueid']);
         }
         elseif(isset($data['querytype']))
         {
@@ -755,10 +736,10 @@ class Package
             $response['stopdate']='stopdate parametresi giriniz.';
             return $response;
           }
-          $arr_acc = array('usercode' => $username, 'password' => $password, 'querytype' => $data['querytype'], 'no' => $data['no'],'startdate' => $data['startdate'], 'stopdate' => $data['stopdate']);
+          $arr_acc = array('usercode' => $this->username, 'password' => $this->password, 'querytype' => $data['querytype'], 'no' => $data['no'],'startdate' => $data['startdate'], 'stopdate' => $data['stopdate']);
         }
         elseif(isset($data['startdate']) && isset($data['stopdate'])){
-          $arr_acc = array('usercode' => $username, 'password' => $password, 'startdate' => $data['startdate'], 'stopdate' => $data['stopdate']);	
+          $arr_acc = array('usercode' => $this->username, 'password' => $this->password, 'startdate' => $data['startdate'], 'stopdate' => $data['stopdate']);	
         }
         else{
           $response['message']='Hatalı parametre';
@@ -794,13 +775,11 @@ class Package
     {
       !isset($data['startdate']) ? $data['startdate']=null:$data['startdate']=$data['startdate'];
       !isset($data['stopdate']) ? $data['stopdate']=null:$data['stopdate']=$data['stopdate'];
-      $username=env("NETGSM_USERCODE");
-      $password=env("NETGSM_PASSWORD");
       $xmlData='<?xml version="1.0"?>
       <mainbody>
          <header>
-             <usercode>'.$username.'</usercode>
-             <password>'.$password.'</password>
+             <usercode>'.$this->username.'</usercode>
+             <password>'.$this->password.'</password>
              <startdate>'.$data['startdate'].'</startdate>
              <stopdate>'.$data['stopdate'].'</stopdate>     
          </header>
@@ -838,14 +817,12 @@ class Package
             $response['date']='date parametresi giriniz.';
             return $response;
       }
-      $username=env("NETGSM_USERCODE");
-      $password=env("NETGSM_PASSWORD");
       
       $xmlData='<?xml version="1.0" encoding="UTF-8"?>
         <mainbody>
           <header>
-              <usercode>'.$username.'</usercode>
-              <password>'.$password.'</password>
+              <usercode>'.$this->username.'</usercode>
+              <password>'.$this->password.'</password>
               <date>'.$data['date'].'</date>
                
           </header>
