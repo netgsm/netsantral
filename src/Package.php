@@ -16,20 +16,20 @@ class Package
           $this->username=$_ENV['NETGSM_USERCODE'];
       }
       else{
-          $this->username=null;
+          $this->username='x';
       }
       if(isset($_ENV['NETGSM_PASSWORD']))
       {
           $this->password=$_ENV['NETGSM_PASSWORD'];
       }
       else{
-          $this->password=null;
+          $this->password='x';
       }
       
   }
     public function cagribaslat(array $data):array
     {
-        
+       
         !isset($data['customer_num']) ? $data['customer_num']=null:$data['customer_num']=$data['customer_num'];
         !isset($data['pbxnum']) ? $data['pbxnum']=null:$data['pbxnum']=$data['pbxnum'];
         !isset($data['internal_num']) ? $data['internal_num']=null:$data['internal_num']=$data['internal_num'];
