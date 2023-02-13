@@ -136,9 +136,8 @@ Bu servis, santral numaranızdan (312xxxxxxx,850xxxxxxx) santralinizdeki registe
         $islem=new NetsantralPackage;
         $sonuc=$islem->cagribaslat($data);
         
-        echo '<pre>';
-            print_r($sonuc);
-        echo '<pre>';
+        dump($sonuc);
+	die;
 
 ```
 #### Başarılı istek örnek sonuç
@@ -283,10 +282,8 @@ Array
         );
         $islem=new NetsantralPackage;
         $sonuc=$islem->icDahiliCagriBaslat($data);
-        
-        echo '<pre>';
-            print_r($sonuc);
-        echo '<pre>';
+        dump($sonuc);
+	die;
 
 ```
 #### Başarılı istek örnek sonuç
@@ -348,11 +345,8 @@ Parametre olarak aldığı uniqueid değerine sahip kanalı santraliniz üzerind
         );
         $islem=new NetsantralPackage;
         $sonuc=$islem->cagrisonlandirma($data);
-        
-        
-        echo '<pre>';
-            print_r($sonuc);
-        echo '<pre>';
+        dump($sonuc);
+	die;
 
 ```
 
@@ -464,10 +458,8 @@ Array
         );
         $islem=new NetsantralPackage;
         $sonuc=$islem->cagrisessizeal($data);
-
-        echo '<pre>';
-            print_r($sonuc);
-        echo '<pre>';
+	dump($sonuc);
+	die;
 
 ```
 
@@ -577,10 +569,8 @@ Array
         );
         $islem=new NetsantralPackage;
         $sonuc=$islem->cagribagla($data);
-        
-        echo '<pre>';
-            print_r($sonuc);
-        echo '<pre>';
+        dump($sonuc);
+	die;
 
 ```
 ##### Başarılı istek örnek sonuç
@@ -650,10 +640,8 @@ Array
         $islem=new NetsantralPackage;
         $sonuc=$islem->cagritransfer($data);
         
-        
-        echo '<pre>';
-            print_r($sonuc);
-        echo '<pre>';
+        dump($sonuc);
+	die;
 
 ```
 ##### Başarılı istek örnek sonuç
@@ -756,9 +744,8 @@ Array
          
         $islem=new NetsantralPackage;
         $sonuc=$islem->kuyrukEkle($data);
-        echo '<pre>';
-            print_r($sonuc);
-        echo '<pre>';
+        dump($sonuc);
+	die;
 
 ```
 ##### Başarılı istek örnek sonuç
@@ -815,9 +802,8 @@ Array
          
         $islem=new NetsantralPackage;
         $sonuc=$islem->kuyrukCikar($data);
-        echo '<pre>';
-            print_r($sonuc);
-        echo '<pre>';
+        dump($sonuc);
+	die;
 
 ```
 ##### Başarılı istek örnek sonuç
@@ -870,9 +856,8 @@ Santralinizdeki kuyruklardaki olaylar anlık olarak izlenebilir.
      
         $islem=new NetsantralPackage;
         $sonuc=$islem->kuyrukSorgula($data);
-        echo '<pre>';
-            print_r($sonuc);
-        echo '<pre>';
+        dump($sonuc);
+	die;
 
 ```
 
@@ -1067,9 +1052,8 @@ Array
      
         $islem=new NetsantralPackage;
         $sonuc=$islem->mola($data);
-        echo '<pre>';
-            print_r($sonuc);
-        echo '<pre>';
+        dump($sonuc);
+	die;
 
 ```
 ##### Başarılı istek örnek sonuç
@@ -1137,9 +1121,8 @@ $data=array(
      
         $islem=new NetsantralPackage;
         $sonuc=$islem->kuyrukDisNum($data);
-        echo '<pre>';
-            print_r($sonuc);
-        echo '<pre>';
+        dump($sonuc);
+	die;
 
 ```
 ##### Başarılı istek örnek sonuç
@@ -1261,9 +1244,8 @@ Linkup API'ye (Çağrı bağlama API) benzer mantıkta çalışan, called parame
      
         $islem=new NetsantralPackage;
         $sonuc=$islem->dinamikyonlendirme($data);
-        echo '<pre>';
-            print_r($sonuc);
-        echo '<pre>';
+        dump($sonuc);
+	die;
     
   ```
  ##### Başarılı istek örnek sonuç 
@@ -1441,9 +1423,8 @@ Bazı entegrasyonlardan bu listeye numara ekletmesi yapabilirsiniz.
         ); 
 
 	$sonuc=$islem->otoAramaListeOlustur($data);
-        echo '<pre>';
-            print_r($sonuc);
-        echo '<pre>';
+        dump($sonuc);
+	die;
 ```
 
 
@@ -1593,9 +1574,8 @@ Array
         $islem=new NetsantralPackage;
         $data=array('list_id'=>"12406");
         $sonuc=$islem->otomatikAramaList($data);
-        echo '<pre>';
-            print_r($sonuc);
-        echo '<pre>';
+        dump($sonuc);
+	die;
 
 ```
 ##### Başarılı istek örnek sonuç
@@ -1685,9 +1665,8 @@ Array
             'status'=>"1"
         );
         $sonuc=$islem->listChangeStatus($data);
-        echo '<pre>';
-            print_r($sonuc);
-        echo '<pre>';
+        dump($sonuc);
+	die;
 
 ```
 ##### Başarılı istek örnek sonuç
@@ -1737,9 +1716,8 @@ Array
 	$islem=new NetsantralPackage;
         $data=array('list_id'=>"12431");
         $sonuc=$islem->aramaRapor($data);
-        echo '<pre>';
-            print_r($sonuc);
-        echo '<pre>';
+        dump($sonuc);
+	die;
 	
 
 ```
@@ -1857,10 +1835,8 @@ Dinamik devam eden ya da durdurulmuş listenize numara ekleyebilirsiniz.
             'numbers'=>array( "number" => "542xxxxxxx","name" => "netgsm")
         );
         $sonuc=$islem->listeNumEkle($data);
-        echo '<pre>';
-            print_r($sonuc);
-        echo '<pre>';
-
+        dump($sonuc);
+	die;
 ```
 ##### Başarılı istek örnek sonuç
 ```
@@ -1937,9 +1913,8 @@ Array
             'id'=>'27229043'
         );
         $sonuc=$islem->listeNumCikar($data);
-        echo '<pre>';
-            print_r($sonuc);
-        echo '<pre>';
+        dump($sonuc);
+	die;
 
 ```
 ### Numara Durum Güncelle
@@ -1990,9 +1965,8 @@ Listenizde bulunan bir numaranın aranma durumu, aranma tarihi, numaraya ait isi
 
             );
         $sonuc=$islem->listeNumGuncelle($data);
-        echo '<pre>';
-            print_r($sonuc);
-        echo '<pre>';
+        dump($sonuc);
+	die;
 
 ```
 
@@ -2042,9 +2016,8 @@ Görüşme kayıtlarınızı, belirteceğiniz zaman aralığına göre, çağrı
             'uniqueid' =>"sip9-1675248884.94499",
             );
         $sonuc=$islem->gorusmeDetay($data);
-        echo '<pre>';
-            print_r($sonuc);
-        echo '<pre>';
+        dump($sonuc);
+	die;
 
 ```
 
@@ -2060,9 +2033,8 @@ Görüşme kayıtlarınızı, belirteceğiniz zaman aralığına göre, çağrı
             'no'  =>"553xxxxxxx",
             );
         $sonuc=$islem->gorusmeDetay($data);
-        echo '<pre>';
-            print_r($sonuc);
-        echo '<pre>';
+        dump($sonuc);
+	die;
 ```
 
 #### Tarih aralığı ile cdr sorgulama
@@ -2075,9 +2047,8 @@ Görüşme kayıtlarınızı, belirteceğiniz zaman aralığına göre, çağrı
             'stopdate'=>'010220231400',
             );
         $sonuc=$islem->gorusmeDetay($data);
-        echo '<pre>';
-            print_r($sonuc);
-        echo '<pre>';
+        dump($sonuc);
+	die;
 ```
 ##### Başarılı istek örnek sonuç
 ```
@@ -2212,9 +2183,8 @@ Gelen çağrılarınızdan oluşan tarih bazlı istatistiğe bu servisle ulaşab
             'stopdate'  =>'010220231600',
             );
         $sonuc=$islem->istatistikGelenCagri($data);
-        echo '<pre>';
-            print_r($sonuc);
-        echo '<pre>';
+        dump($sonuc);
+	die;
 
 ```
 
@@ -2300,9 +2270,8 @@ Terkedilmiş, cevapsız, cevaplanan çağrı bilgisine ulaşılabilir.
             'date' =>'01022023',
             );
         $sonuc=$islem->istatistikGunDetay($data);
-        echo '<pre>';
-            print_r($sonuc);
-        echo '<pre>';
+        dump($sonuc);
+	die;
 
 ##### Başarılı istek örnek sonuç
 ```
