@@ -282,10 +282,8 @@ Array
         );
         $islem=new NetsantralPackage;
         $sonuc=$islem->icDahiliCagriBaslat($data);
-        
-        echo '<pre>';
-            print_r($sonuc);
-        echo '<pre>';
+        dump($sonuc);
+	die;
 
 ```
 #### Başarılı istek örnek sonuç
@@ -1425,9 +1423,8 @@ Bazı entegrasyonlardan bu listeye numara ekletmesi yapabilirsiniz.
         ); 
 
 	$sonuc=$islem->otoAramaListeOlustur($data);
-        echo '<pre>';
-            print_r($sonuc);
-        echo '<pre>';
+        dump($sonuc);
+	die;
 ```
 
 
