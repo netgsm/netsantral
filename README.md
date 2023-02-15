@@ -21,6 +21,9 @@ https://www.netgsm.com.tr/dokuman/
 ### Supported Laravel Versions
 
 Laravel 6.x, Laravel 7.x, Laravel 8.x, Laravel 9.x, 
+### Supported Lumen Versions
+
+Lumen 6.x, Lumen 7.x, Lumen 8.x, Lumen 9.x, 
 
 ### Supported Symfony Versions
 
