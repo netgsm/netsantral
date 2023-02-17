@@ -346,7 +346,7 @@ Parametre olarak aldığı uniqueid değerine sahip kanalı santraliniz üzerind
 ```php
         use Netgsm\Netsantral\Package as NetsantralPackage;
         $data=array(   
-            "unique_id"=>"sip9-1675081620.181687",
+            "unique_id"=>"sip9-167xxxx620.xxxxx",
             "crm_id"=>"xxx",
             
         );
@@ -584,7 +584,7 @@ Array
 ```php
 Array
 (
-    [unique_id] => sip3-1675766849.90638
+    [unique_id] => sip3-16757xxxxx.xxxx
     [caller_num] => 553xxxxxxx
     [called_num] => 537xxxxxxx
     [crm_id] => xxx
@@ -639,7 +639,7 @@ Array
 ```php
         use Netgsm\Netsantral\Package as NetsantralPackage;
         $data=array(   
-            "unique_id"=>"sip9-1675145346.6541",
+            "unique_id"=>"sip9-16xxxxxxxx.6541",
             "crm_id"=>"123456",
             "type"=>"xfer",
             "exten"=>"0544xxxxxxx"
@@ -2020,7 +2020,7 @@ Görüşme kayıtlarınızı, belirteceğiniz zaman aralığına göre, çağrı
 	use Netgsm\Netsantral\Package as NetsantralPackage;
 	$islem=new NetsantralPackage;
         $data=array(
-            'uniqueid' =>"sip9-1675248884.94499",
+            'uniqueid' =>"sip9-167524xxxx4.94499",
             );
         $sonuc=$islem->gorusmeDetay($data);
         dd($sonuc);
@@ -2063,7 +2063,7 @@ Array
 (
     [0] => stdClass Object
         (
-            [uniqueid] => sip3-1675767033.92222
+            [uniqueid] => sip3-167xxxxx3.92222
             [values] => Array
                 (
                     [0] => stdClass Object
