@@ -2270,7 +2270,7 @@ Array
 ### Gün Detayı 
 
 Terkedilmiş, cevapsız, cevaplanan çağrı bilgisine ulaşılabilir.  
-
+```php
 	use Netgsm\Netsantral\Package as NetsantralPackage;
 	$islem=new NetsantralPackage;
         $data=array(
@@ -2279,7 +2279,7 @@ Terkedilmiş, cevapsız, cevaplanan çağrı bilgisine ulaşılabilir.
         $sonuc=$islem->istatistikGunDetay($data);
         dd($sonuc);
 	die;
-
+```
 ##### Başarılı istek örnek sonuç
 ```php
 Array
