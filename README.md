@@ -2244,8 +2244,9 @@ Gelen çağrılarınızdan oluşan tarih bazlı istatistiğe bu servisle ulaşab
 <td>Ortalama Konuşma süresi (sn)</td>
 </tr>
 </tbody>
-</table>
-##### Başarılı istek örnek sonuç
+</table>  
+
+##### Başarılı istek örnek sonuç  
 ```php
 Array
 (
