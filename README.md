@@ -1259,9 +1259,9 @@ Linkup API'ye (Çağrı bağlama API) benzer mantıkta çalışan, called parame
    ```php 
 Array
 (
-    [unique_id] => sip3-1675768456.108813
-    [caller_num] => 3129116589
-    [called_num] => 3129116589
+    [unique_id] => sip3-xxxxxxxxxxxxx.108813
+    [caller_num] => 3129xxxxxx
+    [called_num] => 3129xxxxxx
     [crm_id] => 1234
     [response] => dynamic_redirect
     [status] => Success
@@ -1273,7 +1273,7 @@ Array
 Array
 (
     [caller_num] => caller
-    [called_num] => 3129116589
+    [called_num] => 3129xxxxxx
     [crm_id] => 1234
     [response] => dynamic_redirect
     [status] => Error
@@ -1641,7 +1641,7 @@ Array
         )
 
 )
-```php
+```
 ### Otomatik Arama Listesini Durdur/Başlat
 
 <table>
