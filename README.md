@@ -123,7 +123,7 @@ Bu servis, santral numaranızdan (312xxxxxxx,850xxxxxxx) santralinizdeki registe
 
 ## Örnek
 
-```
+```php
        use Netgsm\Netsantral\Package as NetsantralPackage;
        
        $data=array(   
@@ -143,12 +143,12 @@ Bu servis, santral numaranızdan (312xxxxxxx,850xxxxxxx) santralinizdeki registe
         $islem=new NetsantralPackage;
         $sonuc=$islem->cagribaslat($data);
         
-        dump($sonuc);
+        dd($sonuc);
 	die;
 
 ```
 #### Başarılı istek örnek sonuç
-```
+```php
 Array
 (
     [unique_id] => sip3-xxxxxxxx.53336
@@ -161,7 +161,7 @@ Array
 )
 ```
 #### Başarısız istek örnek sonuç
-```
+```php
 Array
 (
     [code] => 30
@@ -274,7 +274,7 @@ Array
 
 ##  İç Dahiliye Çağrı Başlatma
 
-```
+```php
        use Netgsm\Netsantral\Package as NetsantralPackage;
        $data=array(   
             "pbxnum"=>"312xxxxxxx",
@@ -289,12 +289,12 @@ Array
         );
         $islem=new NetsantralPackage;
         $sonuc=$islem->icDahiliCagriBaslat($data);
-        dump($sonuc);
+        dd($sonuc);
 	die;
 
 ```
 #### Başarılı istek örnek sonuç
-```
+```php
 Array
 (
     [unique_id] => sip3-xxxxxxxx.53336
@@ -343,7 +343,7 @@ Parametre olarak aldığı uniqueid değerine sahip kanalı santraliniz üzerind
 
 ## Örnek
 
-```
+```php
         use Netgsm\Netsantral\Package as NetsantralPackage;
         $data=array(   
             "unique_id"=>"sip9-1675081620.181687",
@@ -352,13 +352,13 @@ Parametre olarak aldığı uniqueid değerine sahip kanalı santraliniz üzerind
         );
         $islem=new NetsantralPackage;
         $sonuc=$islem->cagrisonlandirma($data);
-        dump($sonuc);
+        dd($sonuc);
 	die;
 
 ```
 
 #### Başarılı istek örnek sonuç
-```
+```php
 Array
 (
     [crm_id] => xxx
@@ -454,7 +454,7 @@ Array
 
 ## Örnek
 
-```
+```php
         use Netgsm\Netsantral\Package as NetsantralPackage;
         $data=array(   
             "unique_id"=>"sip9-1675084716.207479",
@@ -465,14 +465,14 @@ Array
         );
         $islem=new NetsantralPackage;
         $sonuc=$islem->cagrisessizeal($data);
-	dump($sonuc);
+	dd($sonuc);
 	die;
 
 ```
 
 ##### Başarılı istek örnek sonuç
 
-```
+```php
 Array
 (
     [crm_id] => xxx
@@ -484,7 +484,7 @@ Array
 ```
 ##### Başarısız istek örnek sonuç
 
-```
+```php
 Array
 (
     [code] => 30
@@ -558,7 +558,7 @@ Array
 
 ## Örnek
 
-```
+```php
         use Netgsm\Netsantral\Package as NetsantralPackage;
         $data=array(   
             "caller"=>"553xxxxxx",
@@ -576,12 +576,12 @@ Array
         );
         $islem=new NetsantralPackage;
         $sonuc=$islem->cagribagla($data);
-        dump($sonuc);
+        dd($sonuc);
 	die;
 
 ```
 ##### Başarılı istek örnek sonuç
-```
+```php
 Array
 (
     [unique_id] => sip3-1675766849.90638
@@ -594,7 +594,7 @@ Array
 )
 ```
 ##### Başarısız istek örnek sonuç
-```
+```php
 Array
 (
     [code] => 30
@@ -636,7 +636,7 @@ Array
 </tbody>
 </table>
 
-```
+```php
         use Netgsm\Netsantral\Package as NetsantralPackage;
         $data=array(   
             "unique_id"=>"sip9-1675145346.6541",
@@ -647,12 +647,12 @@ Array
         $islem=new NetsantralPackage;
         $sonuc=$islem->cagritransfer($data);
         
-        dump($sonuc);
+        dd($sonuc);
 	die;
 
 ```
 ##### Başarılı istek örnek sonuç
-```
+```php
 Array
 (
     [crm_id] => 123456
@@ -662,7 +662,7 @@ Array
 )
 ```
 ##### Başarısız istek örnek sonuç
-```
+```php
 Array
 (
     [status] => Error
@@ -739,7 +739,7 @@ Array
 </tbody>
 </table>
 
-```
+```php
         use Netgsm\Netsantral\Package as NetsantralPackage;
         $data=array(
                 "exten"=>"110",
@@ -751,12 +751,12 @@ Array
          
         $islem=new NetsantralPackage;
         $sonuc=$islem->kuyrukEkle($data);
-        dump($sonuc);
+        dd($sonuc);
 	die;
 
 ```
 ##### Başarılı istek örnek sonuç
-```
+```php
 Array
 (
     [crm_id] => 345
@@ -765,7 +765,7 @@ Array
 )
 ```
 ##### Başarısız istek örnek sonuç
-```
+```php
 Array
 (
     [status] => Error
@@ -799,7 +799,7 @@ Array
 </tbody>
 </table>
 
-```
+```php
         use Netgsm\Netsantral\Package as NetsantralPackage;
         $data=array(
                 "exten"=>"101",
@@ -809,12 +809,12 @@ Array
          
         $islem=new NetsantralPackage;
         $sonuc=$islem->kuyrukCikar($data);
-        dump($sonuc);
+        dd($sonuc);
 	die;
 
 ```
 ##### Başarılı istek örnek sonuç
-```
+```php
 Array
 (
     [crm_id] => 345
@@ -823,7 +823,7 @@ Array
 )
 ```
 ##### Başarısız istek örnek sonuç
-```
+```php
 Array
 (
     [status] => Error
@@ -854,7 +854,7 @@ Santralinizdeki kuyruklardaki olaylar anlık olarak izlenebilir.
 </tbody>
 </table>
 
-```
+```php
         use Netgsm\Netsantral\Package as NetsantralPackage;
         $data=array(
             "queue"=>"muhasebe",
@@ -863,7 +863,7 @@ Santralinizdeki kuyruklardaki olaylar anlık olarak izlenebilir.
      
         $islem=new NetsantralPackage;
         $sonuc=$islem->kuyrukSorgula($data);
-        dump($sonuc);
+        dd($sonuc);
 	die;
 
 ```
@@ -872,7 +872,7 @@ Santralinizdeki kuyruklardaki olaylar anlık olarak izlenebilir.
 
 
 
-```
+```php
 Array
 (
     [crm_id] => 345
@@ -913,7 +913,7 @@ Array
 
 ```
 ##### Başarısız istek örnek sonuç
-```
+```php
 (
     [code] => 70
     [status] => Error
@@ -1047,7 +1047,7 @@ Array
 </tbody>
 </table>
 
-```
+```php
         use Netgsm\Netsantral\Package as NetsantralPackage;
         $data=array(
             "exten"=>"110",
@@ -1059,12 +1059,12 @@ Array
      
         $islem=new NetsantralPackage;
         $sonuc=$islem->mola($data);
-        dump($sonuc);
+        dd($sonuc);
 	die;
 
 ```
 ##### Başarılı istek örnek sonuç
-```
+```php
 Array
 (
     [crm_id] => 345
@@ -1074,7 +1074,7 @@ Array
 ```
 
 ##### Başarısız istek örnek sonuç
-```
+```php
 Array
 (
     [status] => Error
@@ -1116,7 +1116,7 @@ Netsantral'iniz üzerinde kuyruğa harici (dahili dışında) numara/ekleyip ç�
 </tbody>
 </table>
 
-```
+```php
 use Netgsm\Netsantral\Package as NetsantralPackage;
 $data=array(
             "command"=>"queuedelnumber",
@@ -1128,12 +1128,12 @@ $data=array(
      
         $islem=new NetsantralPackage;
         $sonuc=$islem->kuyrukDisNum($data);
-        dump($sonuc);
+        dd($sonuc);
 	die;
 
 ```
 ##### Başarılı istek örnek sonuç
-```
+```php
 Array
 (
     [code] => 200
@@ -1142,7 +1142,7 @@ Array
 ```
 
 ##### Başarısız istek örnek sonuç
-```
+```php
 Array
 (
     [code] => 70
@@ -1235,7 +1235,7 @@ Linkup API'ye (Çağrı bağlama API) benzer mantıkta çalışan, called parame
 </tbody>
 </table>
 
-```
+```php
         use Netgsm\Netsantral\Package as NetsantralPackage;
         $data=array(
             "called"=>"553xxxxxxx",
@@ -1251,12 +1251,12 @@ Linkup API'ye (Çağrı bağlama API) benzer mantıkta çalışan, called parame
      
         $islem=new NetsantralPackage;
         $sonuc=$islem->dinamikyonlendirme($data);
-        dump($sonuc);
+        dd($sonuc);
 	die;
     
   ```
  ##### Başarılı istek örnek sonuç 
-   ``` 
+   ```php 
 Array
 (
     [unique_id] => sip3-1675768456.108813
@@ -1269,7 +1269,7 @@ Array
 )
   ```
    ##### Başarısız istek örnek sonuç 
-   ``` 
+   ```php 
 Array
 (
     [caller_num] => caller
@@ -1402,7 +1402,7 @@ Bazı entegrasyonlardan bu listeye numara ekletmesi yapabilirsiniz.
 </tbody>
 </table>
 
-```
+```php
 		use Netgsm\Netsantral\Package as NetsantralPackage;
 
         $islem=new NetsantralPackage;
@@ -1430,7 +1430,7 @@ Bazı entegrasyonlardan bu listeye numara ekletmesi yapabilirsiniz.
         ); 
 
 	$sonuc=$islem->otoAramaListeOlustur($data);
-        dump($sonuc);
+        dd($sonuc);
 	die;
 ```
 
@@ -1503,7 +1503,7 @@ Bazı entegrasyonlardan bu listeye numara ekletmesi yapabilirsiniz.
 
 
 ##### Başarılı istek örnek sonuç
-```
+```php
 Array
 (
     [header] => stdClass Object
@@ -1543,7 +1543,7 @@ Array
 ```
 
 ##### Başarısız istek örnek sonuç
-```
+```php
 Array
 (
     [header] => stdClass Object
@@ -1576,17 +1576,17 @@ Array
 </tbody>
 </table>
 
-```
+```php
         use Netgsm\Netsantral\Package as NetsantralPackage;
         $islem=new NetsantralPackage;
         $data=array('list_id'=>"12406");
         $sonuc=$islem->otomatikAramaList($data);
-        dump($sonuc);
+        dd($sonuc);
 	die;
 
 ```
 ##### Başarılı istek örnek sonuç
-```
+```php
 Array
 (
     [header] => stdClass Object
@@ -1626,7 +1626,7 @@ Array
 )
 ```
 ##### Başarısız istek örnek sonuç
-```
+```php
 Array
 (
     [header] => stdClass Object
@@ -1641,7 +1641,7 @@ Array
         )
 
 )
-```
+```php
 ### Otomatik Arama Listesini Durdur/Başlat
 
 <table>
@@ -1664,7 +1664,7 @@ Array
 </tbody>
 </table>
 
-```
+```php
        use Netgsm\Netsantral\Package as NetsantralPackage;
        $islem=new NetsantralPackage;
         $data=array(
@@ -1672,12 +1672,12 @@ Array
             'status'=>"1"
         );
         $sonuc=$islem->listChangeStatus($data);
-        dump($sonuc);
+        dd($sonuc);
 	die;
 
 ```
 ##### Başarılı istek örnek sonuç
-```
+```php
 Array
 (
     [header] => stdClass Object
@@ -1700,7 +1700,7 @@ Array
 )
 ```
 ##### Başarısız istek örnek sonuç
-```
+```php
 Array
 (
     [header] => stdClass Object
@@ -1718,7 +1718,7 @@ Array
 ```
 ### Otomatik Arama Raporlama
 
-```
+```php
 	use Netgsm\Netsantral\Package as NetsantralPackage;
 	$islem=new NetsantralPackage;
         $data=array('list_id'=>"12431");
@@ -1729,7 +1729,7 @@ Array
 
 ```
 ##### Başarılı istek örnek sonuç
-```
+```php
 Array
 (
     [header] => stdClass Object
@@ -1782,7 +1782,7 @@ Array
 )
 ```
 ##### Başarısız istek örnek sonuç
-```
+```php
 Array
 (
     [header] => stdClass Object
@@ -1834,7 +1834,7 @@ Array
 
 Dinamik devam eden ya da durdurulmuş listenize numara ekleyebilirsiniz. 
 
-```
+```php
 	use Netgsm\Netsantral\Package as NetsantralPackage;
 	$islem=new NetsantralPackage;
         $data=array(
@@ -1842,11 +1842,11 @@ Dinamik devam eden ya da durdurulmuş listenize numara ekleyebilirsiniz.
             'numbers'=>array( "number" => "542xxxxxxx","name" => "netgsm")
         );
         $sonuc=$islem->listeNumEkle($data);
-        dump($sonuc);
+        dd($sonuc);
 	die;
 ```
 ##### Başarılı istek örnek sonuç
-```
+```php
 Array
 (
     [header] => stdClass Object
@@ -1880,7 +1880,7 @@ Array
 )
 ```
 ##### Başarısız istek örnek sonuç
-```
+```php
 Array
 (
     [header] => stdClass Object
@@ -1920,7 +1920,7 @@ Array
             'id'=>'27229043'
         );
         $sonuc=$islem->listeNumCikar($data);
-        dump($sonuc);
+        dd($sonuc);
 	die;
 
 ```
@@ -1960,7 +1960,7 @@ Listenizde bulunan bir numaranın aranma durumu, aranma tarihi, numaraya ait isi
 </tbody>
 </table>
 
-```
+```php
 	use Netgsm\Netsantral\Package as NetsantralPackage;
 	$islem=new NetsantralPackage;
         $data=array('list_id'=>"12431",
@@ -1972,7 +1972,7 @@ Listenizde bulunan bir numaranın aranma durumu, aranma tarihi, numaraya ait isi
 
             );
         $sonuc=$islem->listeNumGuncelle($data);
-        dump($sonuc);
+        dd($sonuc);
 	die;
 
 ```
@@ -2016,21 +2016,21 @@ Görüşme kayıtlarınızı, belirteceğiniz zaman aralığına göre, çağrı
 
 #### uniqueid ile cdr sorgulama
 
-```
+```php
 	use Netgsm\Netsantral\Package as NetsantralPackage;
 	$islem=new NetsantralPackage;
         $data=array(
             'uniqueid' =>"sip9-1675248884.94499",
             );
         $sonuc=$islem->gorusmeDetay($data);
-        dump($sonuc);
+        dd($sonuc);
 	die;
 
 ```
 
 #### querytype ile cdr sorgulama
 
-```
+```php
 	use Netgsm\Netsantral\Package as NetsantralPackage;
 	$islem=new NetsantralPackage;
         $data=array(
@@ -2046,7 +2046,7 @@ Görüşme kayıtlarınızı, belirteceğiniz zaman aralığına göre, çağrı
 
 #### Tarih aralığı ile cdr sorgulama
 
-```
+```php
 	use Netgsm\Netsantral\Package as NetsantralPackage;
 	$islem=new NetsantralPackage;
         $data=array(
@@ -2054,11 +2054,11 @@ Görüşme kayıtlarınızı, belirteceğiniz zaman aralığına göre, çağrı
             'stopdate'=>'010220231400',
             );
         $sonuc=$islem->gorusmeDetay($data);
-        dump($sonuc);
+        dd($sonuc);
 	die;
 ```
 ##### Başarılı istek örnek sonuç
-```
+```php
 Array
 (
     [0] => stdClass Object
@@ -2085,7 +2085,7 @@ Array
 )
 ```
 ##### Başarısız istek örnek sonuç
-```
+```php
 Array
 (
     [code] => 40
@@ -2182,7 +2182,7 @@ Array
 ## İstatistik(Gelen Çağrı)  
 Gelen çağrılarınızdan oluşan tarih bazlı istatistiğe bu servisle ulaşabilirsiniz.  
 
-```
+```php
 	use Netgsm\Netsantral\Package as NetsantralPackage;
 	$islem=new NetsantralPackage;
         $data=array(
@@ -2190,7 +2190,7 @@ Gelen çağrılarınızdan oluşan tarih bazlı istatistiğe bu servisle ulaşab
             'stopdate'  =>'010220231600',
             );
         $sonuc=$islem->istatistikGelenCagri($data);
-        dump($sonuc);
+        dd($sonuc);
 	die;
 
 ```
@@ -2246,7 +2246,7 @@ Gelen çağrılarınızdan oluşan tarih bazlı istatistiğe bu servisle ulaşab
 </tbody>
 </table>
 ##### Başarılı istek örnek sonuç
-```
+```php
 Array
 (
     [date] => 01.02.2023
@@ -2260,7 +2260,7 @@ Array
 )
 ```
 ##### Başarısız istek örnek sonuç
-```
+```php
 Array
 (
     [code] => 40
@@ -2277,11 +2277,11 @@ Terkedilmiş, cevapsız, cevaplanan çağrı bilgisine ulaşılabilir.
             'date' =>'01022023',
             );
         $sonuc=$islem->istatistikGunDetay($data);
-        dump($sonuc);
+        dd($sonuc);
 	die;
 
 ##### Başarılı istek örnek sonuç
-```
+```php
 Array
 (
     [date] => 01.02.2023
@@ -2295,7 +2295,7 @@ Array
 )
 ```
 ##### Başarısız istek örnek sonuç
-```
+```php
 Array
 (
     [code] => 40
