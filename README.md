@@ -457,7 +457,7 @@ Array
 ```php
         use Netgsm\Netsantral\Package as NetsantralPackage;
         $data=array(   
-            "unique_id"=>"sip9-1675084716.207479",
+            "unique_id"=>"sip9-1675xxxx16.207479",
             "crm_id"=>"xxx",
             "state"=>'unmute',
             'direction'=>'all'
@@ -876,12 +876,12 @@ Santralinizdeki kuyruklardaki olaylar anlık olarak izlenebilir.
 Array
 (
     [crm_id] => 345
-    [pbx_num] => 3129116589
+    [pbx_num] => 312xxxxxxxx
     [queues] => Array
         (
             [0] => stdClass Object
                 (
-                    [queuename] => 3129116589-queue-Operator
+                    [queuename] => 312xxxxxxxx-queue-Operator
                     [callers] => stdClass Object
                         (
                         )
