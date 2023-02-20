@@ -24,7 +24,7 @@ NetSantral paket aboneliği bulunan kullanıcılarımız için composer paketidi
     - [Kuyruk Durum Sorgula](#kuyruk-durum-sorgula)
     - [Kuyruktaki Dahiliyi Molaya Alma//Çıkarma](#kuyruk-mola)
     - [Kuyruğa Dış Numara Ekleme/Çıkarma](#kuyruk-dis-num-ekle-cikar)
-    - [Arama Listesi Oluştur](#oto-arama-list)
+    - [Otomatik Arama Listesi Oluştur](#oto-arama-list)
     - [Otomatik Arama Listele](#oto-arama-liste)
     - [Otomatik Arama Listesini Durdur/Başlat](#oto-arama-liste-baslat-durdur)
     - [Otomatik Arama Raporlama](#oto-arama-raporla)
