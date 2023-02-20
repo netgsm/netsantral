@@ -15,7 +15,7 @@ NetSantral paket aboneliği bulunan kullanıcılarımız için composer paketidi
 - [Döküman](#dokuman)
     - [Çağrı Başlatma](#cagri-baslatma)
     - [İç Dahiliye Çağrı Başlatma](#ic-dahili-cagri)
-    - [Çağrı Sonlandirma](#cagrı-sonlandırma)
+    - [Çağrı Sonlandirma](#çağrı-sonlandırma
     - [Çağrıyı Sessize Alma](#cagri-sessizeal)
     - [Çağrı Bağlama](#cagri-baglama)
     - [Kuyruğa Dahili Ekleme](#kuyruk-dahili-ekle)
