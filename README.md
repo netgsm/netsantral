@@ -7,17 +7,29 @@
 
 
 NetSantral paket aboneliği bulunan kullanıcılarımız için composer paketidir.
+## İçindekiler
+
+- [İletişim & Destek](#destek)
+- [Supported](#supported)
+- [Kurulum](#Kurulum)
+- [Supported](#Supported-Laravel-Versions)
+- [Döküman](#dokuman)
+    - [Kurulum](#kurulum)
+    - [1:n Sms Gönderimi](#1n)
+    - [n:n Sms Gönderimi](#nn)
+    - [Tekli Sms Gönderimi](#tekli-sms)
+    - [Sms Sorgulama](#sms-sorgulama)
+    - [Sms İptali](#sms-iptali)
+    - [Gelen Sms Sorgulama](#gelen-sms-sorgulama)
+    - [Başlık(Gönderi̇ci̇ Adi) Sorgulama](#baslik)
+    - [Kara Liste](#kara-liste)
+    - [Flash Sms](#flash-sms)
 
 # İletişim & Destek
 
  Netgsm API Servisi ile alakalı tüm sorularınızı ve önerilerinizi teknikdestek@netgsm.com.tr adresine iletebilirsiniz.
 
-
-# Doküman 
-https://www.netgsm.com.tr/dokuman/
- API Servisi için hazırlanmış kapsamlı dokümana ve farklı yazılım dillerinde örnek amaçlı hazırlanmış örnek kodlamalara 
- [https://www.netgsm.com.tr/dokuman](https://www.netgsm.com.tr/dokuman) adresinden ulaşabilirsiniz.  
- 
+## Supported
 ### Supported Laravel Versions
 
 Laravel 6.x, Laravel 7.x, Laravel 8.x, Laravel 9.x, Laravel 10.x, 
@@ -40,13 +52,21 @@ PHP 7.2.5 ve üzeri
 .env  dosyası içerisinde NETGSM ABONELİK bilgileriniz tanımlanması zorunludur.  
 
 <b>NETGSM_USERCODE=""</b>  
-<b>NETGSM_PASSWORD=""</b>  
+<b>NETGSM_PASSWORD=""</b>
+
+# Doküman 
+https://www.netgsm.com.tr/dokuman/
+ API Servisi için hazırlanmış kapsamlı dokümana ve farklı yazılım dillerinde örnek amaçlı hazırlanmış örnek kodlamalara 
+ [https://www.netgsm.com.tr/dokuman](https://www.netgsm.com.tr/dokuman) adresinden ulaşabilirsiniz.  
+ 
+  
 
 ### Santral Yönetimi
 
 Çağrı işlemleri (başlatma, sonlandırma, sessize alma, bağlama, transfer),
 Kuyruk işlemleri (durum sorgulama, dahili ekleme/çıkarma, dış numara ekleme/çıkarma, dinamik yönlendirme)
 olayları gerçekleştirilebilir.
+
 
 
 
