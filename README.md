@@ -1,7 +1,7 @@
 
 
 
-# Netgsm NetSantral Laravel Paketi
+# Netgsm Netsantral Composer Package (symfony & laravel entegration)
 
 ![alt text](https://github.com/netgsm/netsantral/blob/main/netsantral.jpg?raw=true)
 
