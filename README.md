@@ -1862,8 +1862,9 @@ Bu yöntemi tercih ediyorsanız <a href="https://github.com/netgsm/netsantral/bl
    public function index(Request $request)
     {
 
-   	 $request->body['crm_id'];
-	 $request->body['called'];
+   	 $data = json_decode($request->getContent(),false);
+    	 $data->body->JobID;
+      	 $data->body->callerid;
       
     }
 ```
@@ -1875,7 +1876,6 @@ Bu yöntemi tercih ediyorsanız <a href="https://github.com/netgsm/netsantral/bl
       $data = json_decode($request->getContent(),false);
       $data->body->JobID;
       $data->body->callerid;
-      $data->crm_id;
     }
 	
 ```
