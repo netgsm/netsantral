@@ -1831,7 +1831,7 @@ Array
 )
 ```
 ### WebHook ile Raporlama
-Bu yöntemi tercih ediyorsanız otomatik arama oluştur eventında url paramretresini de POST etmeniz zorunludur. Parametrede göndereceğiniz URL bilgisine JSON tipinde POST edilecektir.
+Bu yöntemi tercih ediyorsanız <a href="https://github.com/netgsm/netsantral/blob/main/README.md#arama-listesi-oluştur"> otomatik arama listesi oluştur</a> eventında url paramretresini de POST etmeniz zorunludur. Parametrede göndereceğiniz URL bilgisine JSON tipinde POST edilecektir.
 ```php
 {
   "header": {
