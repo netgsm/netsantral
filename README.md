@@ -30,6 +30,7 @@ NetSantral paket aboneliği bulunan kullanıcılarımız için composer paketidi
     - [Otomatik Arama Listele](#otomatik-arama-listele)
     - [Otomatik Arama Listesini Durdur/Başlat](#otomatik-arama-listesini-durdurbaşlat)
     - [Otomatik Arama Raporlama](#otomatik-arama-raporlama)
+    - [WebHook ile Raporlama](#webhook-ile-raporlama)
     - [Listeye Numara Ekle](#listeye-numara-ekle)
     - [Listeden Numara Çıkar](#listeden-numara-çıkar)
     - [Numara Durum Güncelle](#numara-durum-güncelle)
@@ -1830,6 +1831,45 @@ Array
         )
 
 )
+```
+### WebHook ile Raporlama
+Bu yöntemi tercih ediyorsanız otomatik arama oluştur eventında url paramretresini de POST etmeniz zorunludur. Parametrede göndereceğiniz URL bilgisine JSON tipinde POST edilecektir.
+```php
+{
+  "header": {
+    "App": "AutomaticCall"
+  },
+  "body": {
+    "JobID": 12651,
+    "crm_id": "OtoArama-286481536",
+    "called": "055xxxxxxxx",
+    "redirect_menu": "muhasebe",
+    "redirect_type": "queue",
+    "trunk": "312xxxxxxx",
+    "prefix": "101",
+    "callerid": "name1",
+    "filter": "sip3-xxxxxxxxx.4237",
+    "pbxtype": "12",
+    "Brandcode": null,
+    "unique_id": null,
+    "status": "Success",
+    "message": "Successfully"
+  }
+}
+```
+##### laravelde gelen json datayı aşağıdaki örneklerdeki  gibi parçalayabilirsiniz.
+```php
+	public function index(Request $request)
+    {
+
+   	 $request->body['crm_id'];
+	 $request->body['called'];
+      
+    }
+```
+##### symfonyde gelen json datayı aşağıdaki örneklerdeki  gibi parçalayabilirsiniz.
+```php
+	
 ```
 ### Listeye Numara Ekle
 
