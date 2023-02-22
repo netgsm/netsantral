@@ -1880,15 +1880,61 @@ Bu yöntemi tercih ediyorsanız <a href="https://github.com/netgsm/netsantral/bl
 	
 ```
 ### Webhook Santral Dinleme
-<b>Urle Yönlendirme<b/>   
-<ul>
+ <ul>
 <li>Bu işlem ile ilgili ayarlarınızı Netsantral arayüzden <strong>Ayarlar / Genel Ayarlar</strong> menusünden  <strong>API Talep Ayarları</strong> alanından gerçekleştirebilirsiniz,<a href="https://portal.netgsm.com.tr/webportal/netsantral/settings">tıklayın</a></li>
 <li>Santral trafiği için URLye yönlendirme işlemini tercih ediyorsanız, soket yöntemini kullanmayınız.</li>
 <li>Kaydettiğiniz URL adresini aktif edebilir, pasife alabilirsiniz.</li>
 <li>Belirttiğiniz URL adresine yönlendirilecek veri post ile gönderilir.</li>
 <li>Bu yöntem ile santralinizi dinamik olarak dinleyebilirsiniz.</li>
 <li>URLnize gönderilen örnek post değerleri aşağıdaki gibidir.</li>
-</ul>    
+</ul>
+```php
+Servisten Alınan Örnek Cevap
+{  "response" : "login",  "crm_id" : "XXX",  "status" : "success",  "message" : "açıklama" }
+
+Servisten Alınan Örnek Cevap : Outbound Çağrılar
+{"pbx_num":"850304XXXX","unique_id":"1428481945.3543","internal_num":"101","scenario":"Outbound_call","customer_num":"05XXXXXXXXX","timestamp":"1652080580926"}
+
+Servisten Alınan Örnek Cevap : Inbound Çağrılar
+{"pbx_num":"101","unique_id":"1428481992.3556","scenario":"Inbound_call","customer_num":"90312911XXXX","timestamp":"1652080580926"}
+
+Servisten Alınan Örnek Cevap : Scenario : DTMF
+{"Context":"XX.XX","pbx_num":"212XXXXXXX","unique_id":"XXX.XXX","scenario":"DTMF","digit":"0","timestamp":"1652080580926"}
+
+Servisten Alınan Örnek Cevap : Scenario : Context
+{"pbx_num":"212XXXXXXX","customer_num":"05XXXXXXXXX","unique_id":"XXX.XXX","context_name":"XXX-212XXXXXXX","type":"ivr","scenario":"Context","timestamp":"1652080580926"}
+
+Servisten Alınan Örnek Cevap : Scenario : Queue
+{"queue_name":"850XXXXXXX-queue-Destek","pbx_num":"850XXXXXXX","unique_id":"","scenario":"Queue","timestamp":"1652080580926"}
+
+Servisten Alınan Örnek Cevap :  Scenario : Cdr
+{"bas":"2021-01-27 16:05:38","kimlik":18664xxxxx,"ortakkimlik":18664xxxxx,"clid":"\"NECLA 561523\" <05xxxxxxxxx>","arayan":"05xxxxxxxxx","aranan":"85030xxxxx-queue-MusteriHizmetleri","sure":164,"sondurum":3,"santral":"85030xxxxx","yon":1,"seskaydi":"https://dosyaindir.netgsm.com.tr/upload.php?tip=1&q=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx","asteriskId":"sip8-1611752738.106785","trunk":"312xxxxxxx","scenario":"cdr","timestamp":"1652080580926"}
+
+```
+ ##### laravelde gelen json datayı aşağıdaki örneklerdeki  gibi parçalayabilirsiniz.
+```php
+   use Illuminate\Http\Request;
+   public function index(Request $request)
+    {
+        
+        $data = json_decode($request->getContent(),false);
+        echo $data->pbx_num;
+        echo $data->scenario;
+       
+    }
+```
+##### symfonyde gelen json datayı aşağıdaki örneklerdeki  gibi parçalayabilirsiniz.
+```php
+    use Symfony\Component\HttpFoundation\Request;	
+    public function index(Request $request)
+    {
+      $data = json_decode($request->getContent(),false);
+        echo $data->pbx_num;
+        echo $data->scenario;
+      
+    }
+	
+```
 ### Listeye Numara Ekle
 
 <table>
