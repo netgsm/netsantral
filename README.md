@@ -1887,8 +1887,10 @@ Bu yöntemi tercih ediyorsanız <a href="https://github.com/netgsm/netsantral/bl
 <li>Belirttiğiniz URL adresine yönlendirilecek veri post ile gönderilir.</li>
 <li>Bu yöntem ile santralinizi dinamik olarak dinleyebilirsiniz.</li>
 <li>URLnize gönderilen örnek post değerleri aşağıdaki gibidir.</li>
-</ul>
+</ul>  
+
 ```php
+
 Servisten Alınan Örnek Cevap
 {  "response" : "login",  "crm_id" : "XXX",  "status" : "success",  "message" : "açıklama" }
 
@@ -1910,7 +1912,7 @@ Servisten Alınan Örnek Cevap : Scenario : Queue
 Servisten Alınan Örnek Cevap :  Scenario : Cdr
 {"bas":"2021-01-27 16:05:38","kimlik":18664xxxxx,"ortakkimlik":18664xxxxx,"clid":"\"NECLA 561523\" <05xxxxxxxxx>","arayan":"05xxxxxxxxx","aranan":"85030xxxxx-queue-MusteriHizmetleri","sure":164,"sondurum":3,"santral":"85030xxxxx","yon":1,"seskaydi":"https://dosyaindir.netgsm.com.tr/upload.php?tip=1&q=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx","asteriskId":"sip8-1611752738.106785","trunk":"312xxxxxxx","scenario":"cdr","timestamp":"1652080580926"}
 
-```
+``` 
  ##### laravelde gelen json datayı aşağıdaki örneklerdeki  gibi parçalayabilirsiniz.
 ```php
    use Illuminate\Http\Request;
