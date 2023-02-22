@@ -3,10 +3,8 @@
 
 # Netgsm Netsantral Composer Package (symfony & laravel entegration)
 
-![alt text](https://github.com/netgsm/netsantral/blob/main/netsantral.jpg?raw=true)
-
-
 NetSantral paket aboneliği bulunan kullanıcılarımız için composer paketidir.
+![alt text](https://github.com/netgsm/netsantral/blob/main/netsantral.jpg?raw=true)
 ## İçindekiler
 
 - [İletişim & Destek](#destek)
@@ -1859,7 +1857,8 @@ Bu yöntemi tercih ediyorsanız otomatik arama oluştur eventında url paramretr
 ```
 ##### laravelde gelen json datayı aşağıdaki örneklerdeki  gibi parçalayabilirsiniz.
 ```php
-	public function index(Request $request)
+   use Illuminate\Http\Request;
+   public function index(Request $request)
     {
 
    	 $request->body['crm_id'];
@@ -1869,6 +1868,14 @@ Bu yöntemi tercih ediyorsanız otomatik arama oluştur eventında url paramretr
 ```
 ##### symfonyde gelen json datayı aşağıdaki örneklerdeki  gibi parçalayabilirsiniz.
 ```php
+    use Symfony\Component\HttpFoundation\Request;	
+    public function index(Request $request)
+    {
+      $data = json_decode($request->getContent(),false);
+      $data->body->JobID;
+      $data->body->callerid;
+      $data->crm_id;
+    }
 	
 ```
 ### Listeye Numara Ekle
