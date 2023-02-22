@@ -29,6 +29,7 @@ NetSantral paket aboneliği bulunan kullanıcılarımız için composer paketidi
     - [Otomatik Arama Listesini Durdur/Başlat](#otomatik-arama-listesini-durdurbaşlat)
     - [Otomatik Arama Raporlama](#otomatik-arama-raporlama)
     - [WebHook ile Raporlama](#webhook-ile-raporlama)
+    - [WebHook Santral Dinleme](#webhook-santral-dinleme)
     - [Listeye Numara Ekle](#listeye-numara-ekle)
     - [Listeden Numara Çıkar](#listeden-numara-çıkar)
     - [Numara Durum Güncelle](#numara-durum-güncelle)
@@ -1878,6 +1879,16 @@ Bu yöntemi tercih ediyorsanız <a href="https://github.com/netgsm/netsantral/bl
     }
 	
 ```
+### Webhook Santral Dinleme
+<b>Urle Yönlendirme<b/>   
+<ul>
+<li>Bu işlem ile ilgili ayarlarınızı Netsantral arayüzden <strong>Ayarlar / Genel Ayarlar</strong> menusünden  <strong>API Talep Ayarları</strong> alanından gerçekleştirebilirsiniz,<a href="https://portal.netgsm.com.tr/webportal/netsantral/settings">tıklayın</a></li>
+<li>Santral trafiği için URLye yönlendirme işlemini tercih ediyorsanız, soket yöntemini kullanmayınız.</li>
+<li>Kaydettiğiniz URL adresini aktif edebilir, pasife alabilirsiniz.</li>
+<li>Belirttiğiniz URL adresine yönlendirilecek veri post ile gönderilir.</li>
+<li>Bu yöntem ile santralinizi dinamik olarak dinleyebilirsiniz.</li>
+<li>URLnize gönderilen örnek post değerleri aşağıdaki gibidir.</li>
+</ul>    
 ### Listeye Numara Ekle
 
 <table>
