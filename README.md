@@ -1832,7 +1832,59 @@ Array
 )
 ```
 ### WebHook ile Raporlama
-Bu yöntemi tercih ediyorsanız <a href="https://github.com/netgsm/netsantral/blob/main/README.md#arama-listesi-oluştur"> otomatik arama listesi oluştur</a> eventında url paramretresini de POST etmeniz zorunludur. Parametrede göndereceğiniz URL bilgisine JSON tipinde POST edilecektir.
+Bu yöntemi tercih ediyorsanız <a href="https://github.com/netgsm/netsantral/blob/main/README.md#arama-listesi-oluştur"> otomatik arama listesi oluştur</a> eventında url paramretresini de POST etmeniz zorunludur. Parametrede göndereceğiniz URL bilgisine JSON tipinde POST edilecektir.  
+
+<table>
+<thead>
+<tr>
+<th>Değişken</th>
+<th>Anlamı</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>JobID</code></td>
+<td>Başlattığınız göreve ait ID.</td>
+</tr>
+<tr>
+<td><code>crm_id</code></td>
+<td>Çağrıya ait otomatik arama IDsi</td>
+</tr>
+<tr>
+<td><code>called</code></td>
+<td>Arama yapılacak numara bilgisi</td>
+</tr>
+<tr>
+<td><code>redirect_menu</code></td>
+<td>Yönlendirilen menü ismi</td>
+</tr>
+<tr>
+<td><code>trunk</code></td>
+<td>Aramanın çıktığı santral bilgisi</td>
+</tr>
+<tr>
+<td><code>prefix</code></td>
+<td>Aramada kullanılan Ön ek</td>
+</tr>
+<tr>
+<td><code>callerid</code></td>
+<td>Kişi abone rehberinde kayıtlıysa aradığında görünen isim bilgisi</td>
+</tr>
+<tr>
+<td><code>unique_id</code></td>
+<td>Yapılmış aramaya ait CDR ID</td>
+</tr>
+<tr>
+<td><code>status</code></td>
+<td>Mesaj durum bilgisi "success" ya da "error" dönmektedir</td>
+</tr>
+<tr>
+<td><code>message</code></td>
+<td>Mesaj açıklamaları bu parametrede döner.</td>
+</tr>
+</tbody>
+</table>
+
 ```php
 {
   "header": {
