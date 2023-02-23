@@ -1888,6 +1888,78 @@ Bu yöntemi tercih ediyorsanız <a href="https://github.com/netgsm/netsantral/bl
 <li>URLnize gönderilen örnek post değerleri aşağıdaki gibidir.</li>
 </ul>  
 
+<table>
+<thead>
+<tr>
+<th>Parametre</th>
+<th>Anlamı</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>pbx_num</code></td>
+<td>Santralinizin Netgsm ara yüzünde görünen adıdır.</td>
+</tr>
+<tr>
+<td><code>unique_id</code></td>
+<td>Çağrıya ait ID bilgisidir.</td>
+</tr>
+<tr>
+<td><code>internal_num</code></td>
+<td>Çağrının başlatılıdğı iç dahilinin numarasıdır.</td>
+</tr>
+<tr>
+<td><code>customer_num</code></td>
+<td>Gelen veya giden aramalardaki dış numara bilgisidir..</td>
+</tr>
+<tr>
+<td><code>scenario</code></td>
+<td>Dinlenmek istenen çağrının durumudur.</td>
+</tr>
+<tr>
+<td><code>Context</code></td>
+<td>Çağrının hangi aşamasında (contexinde) tuşlamaya basıldığı bilgisidir.</td>
+</tr>
+<tr>
+<td><code>context_name</code></td>
+<td>Çağrının düştüğü contextin adıdır.</td>
+</tr>
+<tr>
+<td><code>Digit</code></td>
+<td>Yapılmış olan tuşlama bilgisidir.</td>
+</tr>
+<tr>
+<td><code>type</code></td>
+<td>Çağrının düştüğü contextin tipidir.</td>
+</tr>
+<tr>
+<td><code>queue_name</code></td>
+<td>Çağrının düştüğü kuyruğun adıdır.</td>
+</tr>
+<tr>
+<td><code>talktime</code></td>
+<td>Kaç saniye konuşulduğu bilgisini tutar.</td>
+</tr>
+<tr>
+<td><code>holdtime</code></td>
+<td>Çağrı kuyruktan geldiyse arayan abonenin kuyrukta kaç saniye bekleyip çağrı karşıladığı bilgisini tutar.(Scenario : Hangup)</td>
+</tr>
+<tr>
+<td><code>holdtime</code></td>
+<td>Çağrı kuyrukta kaç saniye bekledikten sonra cevaplandığı bilgisini tutar. (Scenario : Answer)</td>
+</tr>
+<tr>
+<td><code>incoming_number</code></td>
+<td>Santralinizde kayıtlı olan müşterinin aradığı numara bilgisidir.</td>
+</tr>
+<tr>
+<td><code>timestamp</code></td>
+<td>Milisaniye cinsinden Unix timestamp.</td>
+</tr>
+</tbody>
+</table>  
+
+
 ```php
 
 Servisten Alınan Örnek Cevap
