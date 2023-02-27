@@ -7,7 +7,7 @@ NetSantral paket aboneliği bulunan kullanıcılarımız için composer paketidi
 ![alt text](https://github.com/netgsm/netsantral/blob/main/netsantral.jpg?raw=true)
 ## İçindekiler
 
-- [İletişim & Destek](#destek)
+- [İletişim & Destek](#i̇letişim--destek)
 - [Supported](#supported)
 - [Kurulum](#Kurulum)
 - [Döküman](#dokuman)
