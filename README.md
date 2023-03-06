@@ -10,7 +10,7 @@ NetSantral paket aboneliği bulunan kullanıcılarımız için composer paketidi
 - [İletişim & Destek](#i̇letişim--destek)
 - [Supported](#supported)
 - [Kurulum](#Kurulum)
-- [Döküman](#dokuman)
+- [Döküman](#doküman)
     - [Çağrı Başlatma](#çağrı-başlatma)
     - [İç Dahiliye Çağrı Başlatma](#i̇ç-dahiliye-çağrı-başlatma)
     - [Çağrı Sonlandırma](#çağrı-sonlandırma)
