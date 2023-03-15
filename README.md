@@ -68,9 +68,9 @@ PHP 7.2.5 ve üzeri
 <b>NETGSM_PASSWORD=""</b>
 
 # Doküman 
-https://www.netgsm.com.tr/dokuman/
+
  API Servisi için hazırlanmış kapsamlı dokümana ve farklı yazılım dillerinde örnek amaçlı hazırlanmış örnek kodlamalara 
- [https://www.netgsm.com.tr/dokuman](https://www.netgsm.com.tr/dokuman) adresinden ulaşabilirsiniz.  
+ [https://www.netgsm.com.tr/netsantraldokuman/#netsantral-api](https://www.netgsm.com.tr/netsantraldokuman/#netsantral-api) adresinden ulaşabilirsiniz.  
  
   
 
